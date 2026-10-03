@@ -1,5 +1,10 @@
 # Standalone D3D12 fixtures
 
+These tests help community contributors check the numerical behavior and
+isolated GPU cost of changes aimed at lowering player GPU overhead. Real-game
+quality and benefit still need player feedback; see the
+[contribution guide](../../CONTRIBUTING.md).
+
 These files reproduce the component tests documented in
 [validation/README_VALIDATION.md](../../validation/README_VALIDATION.md).
 They do not run or write to a game, install a plugin or invoke NGX/model inference.

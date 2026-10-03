@@ -1,3 +1,7 @@
+# F8 controls: help players choose quality and GPU cost
+
+The native panel gives players direct choices and observable state while the community works on reducing GPU overhead. Interface contributions should make settings and their visual/cost tradeoffs easier to understand. Start with [the player guide](../docs/PLAYERS.zh-CN.md) or [contribution guide](../CONTRIBUTING.md).
+
 `src/` is the final production F8 overlay source that produced the local `BCADBA5A...` candidate. Its runtime source files are unchanged in this public package. Test include paths were adjusted to this directory layout.
 
 When `RenoDX_WuWa_GetState` and `RenoDX_WuWa_SetControl` are present, F8 opens the in-process Chinese WuWa panel. Swapper/Electron can be closed after installation. Controls offer NR on/off, every-frame enhancement versus cache reuse, and enhancement working-resolution presets. The 85% default is supplied by the installer configuration; the reader accepts existing values33–100% and the setter offers50/67/75/85/100%.

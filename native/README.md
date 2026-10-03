@@ -1,4 +1,8 @@
-The published native source corresponds to the final WuWa product snapshot that produced the validated local `050AD319...` candidate. The public adaptation changes only executable selection: `WUWA_TARGET_EXE_W` is supplied at build time, and the actual process must match its complete canonical path. An empty target or relative path denies experimental controls. The exact game path is generated outside the repository.
+# Native renderer: reduce redundant NR work
+
+The shared goal is less neural-rendering GPU overhead with image quality players enjoy. This component explores guarded history reuse and stops extra cache work when it is ineffective. Contributions should connect algorithm changes to actual scene behavior, GPU cost and visual tradeoffs; see [the community roadmap](../docs/ROADMAP.zh-CN.md) and [contribution guide](../CONTRIBUTING.md). Players can share observations without compiling through [the player guide](../docs/PLAYERS.zh-CN.md).
+
+The runtime implementation described below corresponds to the final WuWa product snapshot that produced the validated local `050AD319...` candidate. The public runtime adaptation changes only executable selection: `WUWA_TARGET_EXE_W` is supplied at build time, and the actual process must match its complete canonical path. An empty target or relative path denies experimental controls. The exact game path is generated outside the repository.
 
 `RENODX_WUWA_COST_EXPERIMENT=1` includes the control API and interval-two NR/cache candidate. Runtime `WuWaCostMode=0` uses every-frame NR; `1` requests the tested cache policy with confidence rejection, full-NR fallback, completion/readiness checks and bounded recovery. It does not continually lower neural frequency or secretly lower the working resolution.
 

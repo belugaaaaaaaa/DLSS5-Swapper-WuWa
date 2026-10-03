@@ -1,5 +1,10 @@
 # Component validation and reproducibility
 
+These fixtures support the community goal of less neural-rendering GPU overhead
+with image quality players enjoy. They help contributors catch numerical
+regressions before asking players to test a change. Actual scene feedback and
+community comparisons are described in the [contribution guide](../CONTRIBUTING.md).
+
 This source package includes an independent float32 CPU oracle, 19 CPU tests,
 33 synthetic D3D12 GPU fixtures and a bounded GPU timestamp harness for the
 full-edited-color cache. The recorded tests passed on a physical NVIDIA

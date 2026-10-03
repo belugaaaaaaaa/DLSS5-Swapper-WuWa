@@ -1,5 +1,7 @@
 # Public-source preparation checks
 
+These checks support the community goal of reducing GPU overhead with acceptable image quality: contributors need reproducible source and an accurate account of what each test establishes. Player participation starts with the [player guide](PLAYERS.zh-CN.md).
+
 The public source is a later packaging revision of the historical local integration. These checks qualify source/build behavior, not an actual game session.
 
 - Source-only Swapper tests: 293 total, 291 passed, zero failures, two skips for an absent optional community-server sibling. This includes the 13 dedicated installer IPC tests. See `swapper/BUILD.md` for the reproducible command and scope.

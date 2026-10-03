@@ -1,24 +1,41 @@
-# DLSS5-Swapper · 鸣潮适配实验版
+# DLSS5-Swapper WuWa · 社区显卡减负项目
 
-基于 [DLSS5-Swapper v2.2.7](https://github.com/rakanki911/DLSS5-Swapper)、[RenoDX](https://github.com/clshortfuse/renodx) 和 [RenoDX-DLSS5-Generic](https://github.com/PEQHUB/RenoDX-DLSS5-Generic) 的鸣潮专用修改：带检查的 NR 历史缓存、原生 F8 面板，以及插件安装与卸载流程。
+**让更多玩家在保留满意画质的前提下，减少神经渲染带来的额外显卡负担。**
 
-**状态：实验源码；已获使用者在实际鸣潮中的使用验收。** 使用者确认此前显卡“起飞”的体验问题已改善，本次游戏日志也记录了插件加载、实际 NR 求值及模型 GPU 耗时。该反馈对应已安装的本地版本；缓存命中率、同场景性能/功耗降幅和多场景画质仍未进行系统性对照。详见 [实际游戏验收记录](docs/USER_VALIDATION.zh-CN.md)。这里的“DLSS5”沿用上游项目名称，不代表本仓库是 NVIDIA 官方发布或官方游戏支持。
+我们从鸣潮开始，把 Swapper 的使用体验、NR（神经渲染）计算开销和玩家可接受的画质放在一起优化。开源的目的，是让玩家能分享有效设置、发现不同机器上的问题，也让开发者共同改进算法和使用流程。改进是否有价值，要看玩家能否以满意的画面更舒适地玩游戏。
 
-This is an experimental, source-only Wuthering Waves integration. The installed local build has user acceptance and game-log evidence of NR execution. Controlled A/B performance, power and visual-quality comparisons remain unmeasured; this observation does not qualify every public rebuild or hardware configuration.
+**当前发布源码，尚无面向所有玩家安装路径的通用一键包。** 已安装的鸣潮本地版本获得用户验收，用户确认显卡“起飞”的体验问题改善；游戏日志也确认 NR 实际运行。这是已有成果，后续要靠更多机器和场景的反馈，找出哪些改动有效、哪些还需要调整。
 
-## 相比原版改了什么
+Our goal is to help players reduce neural-rendering GPU overhead while keeping image quality they enjoy. We start with Wuthering Waves and welcome test reports, settings, visual comparisons and code contributions. The current release is source-only; the installed local build has user acceptance, while broader hardware support and controlled A/B results are still being developed.
 
-| 部分 | 本仓库的修改 | 作用和边界 |
+## 玩家怎样参与
+
+- **想了解和使用：**先看 [玩家指南](docs/PLAYERS.zh-CN.md)，了解当前版本、F8 控制和使用流程。
+- **愿意分享实测或设置：**提交 [玩家实测反馈](https://github.com/belugaaaaaaaa/DLSS5-Swapper-WuWa/issues/new?template=player-test.zh-CN.md)。有效改善、没有改善、风扇感受和画质取舍都值得记录；缺少仪器的数据可以注明未知。
+- **遇到画质、运行或安装问题：**提交 [问题反馈](https://github.com/belugaaaaaaaa/DLSS5-Swapper-WuWa/issues/new?template=quality-or-bug.zh-CN.md)，描述出现问题的场景和复现方法。
+- **希望贡献代码：**阅读 [贡献指南](CONTRIBUTING.md)，围绕减少额外计算、保留画质和方便玩家使用提出改进。
+
+不会编译也可以参与。请说明显卡、分辨率、设置和体验变化，让后来的玩家知道你的结果适用于什么条件。
+
+## 我们围绕哪些负担做优化
+
+| 玩家关心的问题 | 目前的做法 | 使用时需要了解 |
 | --- | --- | --- |
-| NR 计算 | 在满足安全条件时，隔一个基础 DLSS 求值复用并重投影上次增强结果 | 有机会减少完整 NR 调用；条件不满足时仍执行完整 NR，不能据此宣称计算量减半 |
-| 鸣潮适配 | 缓存与控制只对编译时指定的鸣潮主程序启用，缓存限定 DX12、SR 后及单次处理路径 | 适配其调用位置；默认未指定路径时拒绝启用缓存与控制。未改游戏程序、资源或设置文件 |
-| 复用检查 | 检查运动、深度、颜色、有限数值、资源状态及完成的 GPU 提交 | 无效像素使用当前 DLSS 结果，局部可能失去 NR 增强；这不是画质等价保证 |
-| 负载控制 | 冷启动观察、失败退避、按已完成的 GPU 时间关闭不划算的缓存尝试 | 连续未命中或复用成本过高时暂停缓存工作；完整 NR 自身仍可能较重 |
-| F8 控制 | 原生中文面板，使用版本化公开 C 接口读取状态、发送命令 | 显示实际执行状态；排队成功不会被显示为已经生效。使用时无需保持 Swapper 窗口打开 |
-| 安装与卸载 | 专用插件升级、未知文件保护、保留设置、仅卸载本项目插件 | 不替换游戏原有 SR/Streamline DLL；保留既有备份记录，不覆盖来历不明的插件 |
-| 后台开销 | Electron 无面板客户端时停止隐藏面板绘制 | 减少启动器后台工作，不等于游戏 GPU 降载已经验证 |
+| 神经渲染反复计算 | 条件满足时重投影并复用上次 NR 结果 | 收益取决于实际命中；条件不满足时继续正常 NR |
+| 缓存自己增加负担 | 按完成的 GPU 工作和耗时决定是否复用，失败时暂停缓存尝试 | 暂停的是额外缓存工作，普通 NR 仍会运行 |
+| 画质与负担难以取舍 | 原生中文 F8 面板提供 NR 开关、刷新/缓存模式和处理比例 | 选择自己满意的画质；复用拒绝的像素可能失去 NR 增强 |
+| 安装或卸载难以恢复 | 鸣潮专用插件流程、保留设置、已知文件校验和插件卸载 | 不覆盖未知插件，不替换游戏原有 SR/Streamline 文件 |
+| 使用时还要挂着启动器 | F8 在插件内运行，无面板客户端时停止 Electron 隐藏绘制 | 安装后无需让 Swapper 常驻 |
 
-详见 [改动说明](docs/CHANGES.zh-CN.md)、[验证范围](validation/README_VALIDATION.md) 和 [设计及限制](docs/DESIGN.md)。
+相较上游的完整改动见 [改动说明](docs/CHANGES.zh-CN.md)，算法与当前限制见 [设计说明](docs/DESIGN.md)。
+
+## 已有成果与下一步
+
+首位使用者已在实际鸣潮中验收并确认体验改善，NR 执行也有游戏日志支持，见 [用户实测记录](docs/USER_VALIDATION.zh-CN.md)。源码构建、安装流程、控制接口和独立 CPU/GPU 测试已通过。
+
+接下来优先让玩家更容易参与、收集可比较的实测、减少无效计算并检查运动中的画质，再逐步扩展经过验证的配置。具体优先级见 [社区研发方向](docs/ROADMAP.zh-CN.md)。
+
+目前还没有同场景对照支持的通用降耗百分比，也没有覆盖所有显卡与场景的画质结论。反馈中同时记录体验改善和问题，才能帮助其他玩家做合适的选择。
 
 ## 源码结构
 
@@ -30,7 +47,7 @@ This is an experimental, source-only Wuthering Waves integration. The installed 
 
 ## 构建与使用
 
-请先阅读 [构建方法](build/README.md) 和 [Swapper 构建说明](swapper/README.md)。本仓库不提供 NVIDIA 模型、运行库、游戏文件、编译器或整包启动器。需要的第三方文件由使用者根据各自许可证另行取得并明确提供。
+玩家入口是 [玩家指南](docs/PLAYERS.zh-CN.md)。开发者本地构建请阅读 [原生插件构建方法](build/README.md) 和 [Swapper 构建说明](swapper/BUILD.md)。本仓库不提供 NVIDIA 模型、运行库、游戏文件、编译器或整包启动器；第三方组件由使用者按各自许可证另行取得。
 
 鸣潮目标路径由使用者本地指定。原生插件必须针对同一个主程序路径构建；Swapper 安装时验证目标元数据。源码中不包含开发者的本机游戏路径。
 
@@ -46,6 +63,8 @@ This is an experimental, source-only Wuthering Waves integration. The installed 
 
 ## 许可与来源
 
+本项目基于 [DLSS5-Swapper v2.2.7](https://github.com/rakanki911/DLSS5-Swapper)、[RenoDX](https://github.com/clshortfuse/renodx) 和 [RenoDX-DLSS5-Generic](https://github.com/PEQHUB/RenoDX-DLSS5-Generic)。这里的“DLSS5”沿用上游项目名称，项目为独立社区适配。
+
 本项目源码使用 MIT 许可证；各上游版权声明保留在对应目录。第三方依赖继续适用其自己的许可证，根目录 MIT 不重新授权这些依赖、模型或游戏文件。见 [LICENSE](LICENSE)、[第三方说明](THIRD_PARTY_NOTICES.md) 和 [来源记录](docs/PROVENANCE.md)。
 
-欢迎提供可复现问题、带测试条件的数据或改进补丁。未完成实测的修改请继续标注为实验性。
+欢迎把你的设置经验、实测结果或代码改进贡献回来，让更多玩家找到适合自己的低负担玩法。

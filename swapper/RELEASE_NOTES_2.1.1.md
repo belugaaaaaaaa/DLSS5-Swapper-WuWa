@@ -1,5 +1,7 @@
 # DLSS 5 Swapper v2.1.1
 
+> Historical upstream release notes. For the current community effort to reduce GPU overhead in Wuthering Waves, see the [project README](../README.md) and [player guide](../docs/PLAYERS.zh-CN.md).
+
 This release adds a complete DLSS5-Feeder path for games without native DLSS,
 introduces emulator support, makes full-drive scanning optional, and fixes
 several executable, rendering API and recovery issues reported by users.

@@ -1,5 +1,7 @@
 # In-game overlay - experimental, unofficial
 
+> Historical upstream panel documentation. The current Wuthering Waves adaptation uses the [native F8 panel](../../overlay/README.md), which runs without Swapper staying open. To use the current adaptation or help reduce GPU overhead, start with the [player guide](../../docs/PLAYERS.zh-CN.md). The older panel details below remain for source history.
+
 The app preview and in-game panel now use the **same HTML/CSS and Chromium
 renderer**, including fonts, sliders, spacing and buttons. The native add-on
 displays that interactive surface at 534 CSS pixels wide, without inheriting

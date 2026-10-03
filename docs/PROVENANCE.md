@@ -1,5 +1,7 @@
 # Source provenance
 
+Clear baselines let the community reproduce changes, credit their authors and compare improvements toward lower GPU overhead with acceptable image quality.
+
 | Component | Upstream | Baseline commit |
 | --- | --- | --- |
 | Swapper | https://github.com/rakanki911/DLSS5-Swapper | `3b3b0efb5472df7fc806d7aff31c1d95819500c5` (v2.2.7) |

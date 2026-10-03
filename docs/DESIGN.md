@@ -1,5 +1,7 @@
 # Design and practical limits
 
+The project aims to help players and contributors reduce unnecessary neural-rendering GPU work while keeping acceptable image quality. The design prioritizes useful reuse, bounded wasted work, explicit quality choices and easy recovery. Changes should be assessed against this goal using actual scenes as well as component tests; see [the community roadmap](ROADMAP.zh-CN.md) and [contribution guide](../CONTRIBUTING.md).
+
 The cache operates on base DLSS evaluations after SR. A fresh NR evaluation writes enhanced RGB, unenhanced reference RGB, depth and validity. A guarded reuse evaluation reprojects history and applies the current-minus-history reference correction. Pixels that fail validation return the current unenhanced DLSS result.
 
 Admission requires the configured full executable path, DX12, the expected SR feature and single-pass behavior. It also requires a stable contract and proof that the prior recorded history work was submitted and completed. There is no CPU wait for completion. History resources and descriptor contracts remain unchanged until every associated recording and submission completes. Reuse still has a conservative completion gate; this is not an asynchronous per-recording cache design.

@@ -1,5 +1,7 @@
 # Windows source build
 
+These tools support the community goal of reducing neural-rendering GPU overhead while keeping image quality players enjoy. They let contributors rebuild, test and review changes under documented conditions. Ordinary players can participate through [the player guide](../docs/PLAYERS.zh-CN.md); this chapter is for developers preparing matching local builds. The current public release has no universal ready-to-run installer.
+
 Use **PowerShell7 (`pwsh`)**, Python3.10+, Git, and Windows x64. Windows PowerShell5.1 is not supported: these scripts use `Path.GetRelativePath` and `Path.IsPathFullyQualified` from modern .NET. The shader compiler calls Windows' `d3dcompiler_47.dll`; all21 included shader entry points target SM5.0/5.1, so FXC/DXC executables are not required for this snapshot.
 
 The validated toolchain is Zig0.14.1/Clang19 targeting **`x86_64-windows-msvc`**, official Microsoft VC14.44.35207 headers/static CRT/linker, and the official Windows SDK NuGet10.0.26100.9169 package (headers10.0.26100.0). `-fasync-exceptions` is required for the native `__try/__except` code. A GNU C++ target is used only for the plain-C control consumer test; it must not build the NGX virtual-interface addon. The overlay is compiled with MSVC `/MT` because its ReShade/ImGui C++ ABI must be Microsoft-compatible.
