@@ -1,0 +1,7 @@
+The native addon is derived from [PEQHUB/RenoDX-DLSS5-Generic](https://github.com/PEQHUB/RenoDX-DLSS5-Generic) commit `1b7d6787817b806a61cece6b8aa38789304c4d25`, the public v7.5.0-rc5 source snapshot. Its [MIT license at that commit](https://github.com/PEQHUB/RenoDX-DLSS5-Generic/blob/1b7d6787817b806a61cece6b8aa38789304c4d25/LICENSE) is preserved verbatim in `LICENSE` (Carlos Lopez Jr., 2025). The same license blob is `55209a2779a52a454b96f4666a0d2d2a3e7ed47e` in the verified upstream Git object database.
+
+The source depends on [RenoDX](https://github.com/clshortfuse/renodx) commit `40d764d88719ab06c8e46139b5454e7dafc8cbcc`. This repository does not copy its shared utilities or change vendor dependencies. The necessary missing-API compatibility implementation is local to this addon in `generic_compat.hpp`: canonical COM identity and thread-enrolled Detours transactions. It remains an experimental adapter rather than an upstream-qualified API baseline.
+
+The WuWa cache scheduler, confidence checks, controls, CPU tests, and public build/path adaptations use MIT SPDX identifiers. `wuwa_target.hpp` replaces the original local installation constant with the explicit compile-time `WUWA_TARGET_EXE_W` opt-in; an empty or nonabsolute target is denied. The installed artifact's algorithm has otherwise been preserved.
+
+NVIDIA model/runtime files, game files, SDK distributions, compiler packages, and built addons are not included. Refer to each separately obtained dependency's own license and terms. This repository does not grant rights to those assets.

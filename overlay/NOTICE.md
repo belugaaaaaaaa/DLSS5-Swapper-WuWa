@@ -1,0 +1,7 @@
+The F8 overlay is derived from the [DLSS5-Swapper v2.2.9 overlay source](https://github.com/rakanki911/DLSS5-Swapper/tree/9fb0b7c3563d350aa46eaa01d3e5ca4cbab4a7cb/overlay) (tag `v2.2.9`, commit `9fb0b7c3563d350aa46eaa01d3e5ca4cbab4a7cb`), while the integrating installer is based on Swapper v2.2.7. This distinction concerns source provenance; this directory does not contain the Electron installer.
+
+`LICENSE` preserves the overlay's MIT notice (DLSS 5 Swapper contributors, 2026). `LICENSE-Swapper` preserves the upstream [Swapper MIT license](https://github.com/rakanki911/DLSS5-Swapper/blob/v2.2.7/LICENSE) (Rakan Alkhaldi, 2026). Keep both notices with copies or substantial portions.
+
+The WuWa public C ABI client, pending/readback checks and independent native ImGui panel were added under MIT SPDX identifiers. The inherited private-offset adapter is retained for its explicitly pinned legacy payloads. It is bypassed when the WuWa public ABI is present. No private offsets are used for the new WuWa controls.
+
+ReShade and Dear ImGui headers/libraries are separately obtained build dependencies and are excluded from this source package. ReShade SDK commit `18deaa52de0c425a78b329e9cb3c497281cd00ec` uses API20; Dear ImGui commit `3912b3d9a9c1b3f17431aebafd86d2f40ee6e59c` is19250. Preserve their own license notices when building or distributing an addon. `Prepare-OverlaySdk.ps1` copies those notices beside the local SDK headers. See `../build/dependencies.json`.

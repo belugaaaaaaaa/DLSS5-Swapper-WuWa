@@ -1,0 +1,20 @@
+* text=auto eol=lf
+*.md text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.cpp text eol=lf
+*.hlsl text eol=lf
+*.hlsli text eol=lf
+*.ps1 text eol=lf
+*.py text eol=lf
+# Historical evidence retains original bytes and recorded file hashes.
+validation/gpu_results.json -text -eol
+validation/gpu_timing_rgba16.json -text -eol
+validation/cpu_results.json -text -eol
+# Frozen native/overlay source hashes include upstream CRLF bytes.
+native/** -text -eol
+overlay/** -text -eol
+# Keep the exact source snapshot used by the public portable verification.
+swapper/** -text -eol

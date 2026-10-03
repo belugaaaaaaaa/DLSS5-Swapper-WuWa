@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://download.visualstudio.microsoft.com/download/pr/c610cd8c-801b-44b8-a80a-82cc382aeb43/852382a9aa73502b7849c1bcadfb603ba7175c4e8b60e6aba03c7de711d4ece5/Microsoft.VC.14.44.17.14.CRT.Headers.base.vsix",
+    "filename": "Microsoft.VC.14.44.17.14.CRT.Headers.base.vsix",
+    "sha256": "852382a9aa73502b7849c1bcadfb603ba7175c4e8b60e6aba03c7de711d4ece5",
+    "destination": "msvc",
+    "contentsOnly": true,
+    "hashSource": "official Microsoft VS17 package manifest"
+  },
+  {
+    "url": "https://download.visualstudio.microsoft.com/download/pr/67cf767c-5e71-47c2-a54a-cd5631e28942/f01f701a7bcd9587a340898c851424f6a52bb913a70c185ff0d5bf0288c5831a/Microsoft.VC.14.44.17.14.CRT.x64.Desktop.base.vsix",
+    "filename": "Microsoft.VC.14.44.17.14.CRT.x64.Desktop.base.vsix",
+    "sha256": "f01f701a7bcd9587a340898c851424f6a52bb913a70c185ff0d5bf0288c5831a",
+    "destination": "msvc",
+    "contentsOnly": true,
+    "hashSource": "official Microsoft VS17 package manifest"
+  },
+  {
+    "url": "https://download.visualstudio.microsoft.com/download/pr/67cf767c-5e71-47c2-a54a-cd5631e28942/9135b03c0df53c7a0aa9bef7230a1c2ff4263a0ee7baa7e419d034f484f6bb56/Microsoft.VC.14.44.17.14.CRT.x64.Store.base.vsix",
+    "filename": "Microsoft.VC.14.44.17.14.CRT.x64.Store.base.vsix",
+    "sha256": "9135b03c0df53c7a0aa9bef7230a1c2ff4263a0ee7baa7e419d034f484f6bb56",
+    "destination": "msvc",
+    "contentsOnly": true,
+    "hashSource": "official Microsoft VS17 package manifest"
+  },
+  {
+    "url": "https://download.visualstudio.microsoft.com/download/pr/c610cd8c-801b-44b8-a80a-82cc382aeb43/f3f4a483dca5e80a029f00d5d4053626d64bc7d3e30fa73294cf21d5450cf359/Microsoft.VC.14.44.17.14.CRT.Source.base.vsix",
+    "filename": "Microsoft.VC.14.44.17.14.CRT.Source.base.vsix",
+    "sha256": "f3f4a483dca5e80a029f00d5d4053626d64bc7d3e30fa73294cf21d5450cf359",
+    "destination": "msvc",
+    "contentsOnly": true,
+    "hashSource": "official Microsoft VS17 package manifest"
+  },
+  {
+    "url": "https://download.visualstudio.microsoft.com/download/pr/aa209763-134c-427b-9960-9ca54ccc1734/f4ad3cee4ef18e9f36382399261de27be6910ab3467178d7e687377ec841306d/Microsoft.VC.14.44.17.14.Tools.HostX64.TargetX64.base.vsix",
+    "filename": "Microsoft.VC.14.44.17.14.Tools.HostX64.TargetX64.base.vsix",
+    "sha256": "f4ad3cee4ef18e9f36382399261de27be6910ab3467178d7e687377ec841306d",
+    "destination": "msvc",
+    "contentsOnly": true,
+    "hashSource": "official Microsoft VS17 package manifest"
+  },
+  {
+    "url": "https://download.visualstudio.microsoft.com/download/pr/aa209763-134c-427b-9960-9ca54ccc1734/603375e4d6d639bc6e0a7d0d657b17e0c3b72e52450f78eb41e987f40c3b5305/Microsoft.VC.14.44.17.14.Tools.HostX64.TargetX64.Res.base.enu.vsix",
+    "filename": "Microsoft.VC.14.44.17.14.Tools.HostX64.TargetX64.Res.base.enu.vsix",
+    "sha256": "603375e4d6d639bc6e0a7d0d657b17e0c3b72e52450f78eb41e987f40c3b5305",
+    "destination": "msvc",
+    "contentsOnly": true,
+    "hashSource": "official Microsoft VS17 package manifest"
+  },
+  {
+    "url": "https://download.visualstudio.microsoft.com/download/pr/4d5e22ab-db0c-44ef-b284-9b0fa49ac89d/4988bf20f7d6bb0bd6b78cc7d7131e97c9f8fe5779a8a2ed20b7d5ebc8ff9cb8/Microsoft.VC.14.44.17.14.Premium.Tools.HostX64.TargetX64.base.vsix",
+    "filename": "Microsoft.VC.14.44.17.14.Premium.Tools.HostX64.TargetX64.base.vsix",
+    "sha256": "4988bf20f7d6bb0bd6b78cc7d7131e97c9f8fe5779a8a2ed20b7d5ebc8ff9cb8",
+    "destination": "msvc",
+    "contentsOnly": true,
+    "hashSource": "official Microsoft VS17 package manifest"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.cpp/10.0.26100.9169/microsoft.windows.sdk.cpp.10.0.26100.9169.nupkg",
+    "filename": "microsoft.windows.sdk.cpp.10.0.26100.9169.nupkg",
+    "sha256": "475269434dcd808a67853773272f972c3229c0e10c3ddc821290e70cc0f6904d",
+    "destination": "sdk/microsoft.windows.sdk.cpp",
+    "contentsOnly": false,
+    "hashSource": "recorded downloaded official fixed-version NuGet package SHA256"
+  },
+  {
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.cpp.x64/10.0.26100.9169/microsoft.windows.sdk.cpp.x64.10.0.26100.9169.nupkg",
+    "filename": "microsoft.windows.sdk.cpp.x64.10.0.26100.9169.nupkg",
+    "sha256": "df6226a051e320942abfbd57848b43d18772996ecd66beadad240f2a56ed2f7b",
+    "destination": "sdk/microsoft.windows.sdk.cpp.x64",
+    "contentsOnly": false,
+    "hashSource": "recorded downloaded official fixed-version NuGet package SHA256"
+  },
+  {
+    "url": "https://ziglang.org/download/0.14.1/zig-x86_64-windows-0.14.1.zip",
+    "filename": "zig-x86_64-windows-0.14.1.zip",
+    "sha256": "554f5378228923ffd558eac35e21af020c73789d87afeabf4bfd16f2e6feed2c",
+    "destination": "zig",
+    "contentsOnly": false,
+    "hashSource": "recorded downloaded official fixed-version ziglang.org archive SHA256"
+  }
+]

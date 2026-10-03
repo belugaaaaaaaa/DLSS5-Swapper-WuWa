@@ -1,0 +1,65 @@
+{
+  "native": [
+    {
+      "commit": "40d764d88719ab06c8e46139b5454e7dafc8cbcc",
+      "url": "https://github.com/clshortfuse/renodx.git",
+      "path": "."
+    },
+    {
+      "commit": "a291cc7d2cc642a51566f3dfd5376f635cd1b284",
+      "url": "https://github.com/NVIDIA/DLSS.git",
+      "path": "external/DLSS"
+    },
+    {
+      "commit": "9764cebcb1a75940e68fa83d6730ffaf0f669401",
+      "url": "https://github.com/microsoft/Detours.git",
+      "path": "external/Detours"
+    },
+    {
+      "commit": "e8aaa6eaac968711fb62473d4ae8256dde20919b",
+      "url": "https://github.com/clshortfuse/Streamline.git",
+      "path": "external/Streamline"
+    },
+    {
+      "commit": "61dce5ae18ca59931e27675c468e64118aba8744",
+      "url": "https://github.com/serge-sans-paille/frozen.git",
+      "path": "external/frozen"
+    },
+    {
+      "commit": "51eb683658378d67086d8fc04d5fd162a0ae30c5",
+      "url": "https://github.com/greg7mdp/gtl.git",
+      "path": "external/gtl"
+    },
+    {
+      "commit": "55f93686c01528224f448c19128836e7df245f72",
+      "url": "https://github.com/nlohmann/json.git",
+      "path": "external/json"
+    },
+    {
+      "commit": "4a50d1eddace85734871d91792ff214f13f66c01",
+      "url": "https://github.com/crosire/reshade.git",
+      "path": "external/reshade"
+    },
+    {
+      "commit": "3912b3d9a9c1b3f17431aebafd86d2f40ee6e59c",
+      "url": "https://github.com/ocornut/imgui.git",
+      "path": "external/reshade/deps/imgui"
+    }
+  ],
+  "genericSource": {
+    "url": "https://github.com/PEQHUB/RenoDX-DLSS5-Generic",
+    "commit": "1b7d6787817b806a61cece6b8aa38789304c4d25"
+  },
+  "overlaySdk": {
+    "imguiCommit": "3912b3d9a9c1b3f17431aebafd86d2f40ee6e59c",
+    "api": 20,
+    "imgui": 19250,
+    "url": "https://github.com/crosire/reshade.git",
+    "commit": "18deaa52de0c425a78b329e9cb3c497281cd00ec"
+  },
+  "zig": {
+    "url": "https://ziglang.org/download/0.14.1/zig-x86_64-windows-0.14.1.zip",
+    "version": "0.14.1",
+    "sha256": "554f5378228923ffd558eac35e21af020c73789d87afeabf4bfd16f2e6feed2c"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "scope": "validation and tests/gpu source publication only",
+  "recorded_results_preserved": true,
+  "compiled_binaries_not_distributed": true,
+  "publication_changes": [
+    "Runner imports oracle from repository validation directory.",
+    "Build outputs and generated fixtures/reports use ignored tests/gpu/build/.",
+    "Build scripts use existing MSVC/Windows SDK environment, without workstation paths.",
+    "Numerical runner adds an optional physical-adapter filter.",
+    "Recorded result measurements and their historical runtime/source/CSO hashes remain unchanged."
+  ],
+  "historical_runtime_binary_sha256": {
+    "shader_qa.exe": "c6e193b204f515add2b1f078fe9a18a6fc7463ded8dd6b5b1abf56c693d54fc9",
+    "shader_timing.exe": "8a894515ba89db5936becedb3c6e391989d306a8001ddad917d95fdd677b6078"
+  },
+  "packaged_file_sha256": {
+    "tests/gpu/.gitignore": "ee79a86988e114d3b5ee216db00d98fd88838f06f94a9a64fdbd4aa86714dec7",
+    "tests/gpu/Build-QA.ps1": "cf18ca60edfd428c3a5811e131d99cbaff1e8e33d4dd55661a711f75205c1b8a",
+    "tests/gpu/Compile-Shader.ps1": "e8cd95108bfbd5357f3a629fa23a0c3517445ee12c46ae295f2bcf7f5518a9c1",
+    "tests/gpu/NOTICE.md": "c84fc1c89784d639568683b23fb61364afb8dedf9ab0d0bb14b4e97866a9ecae",
+    "tests/gpu/README.md": "01c464139dd0aee4f73872da490b3a8bfdf5322db2390e9866fc7edbfca93c4b",
+    "tests/gpu/Run-Timing.ps1": "ea1bc644013bcdb8ad240608051028ba6eaedf263e6dfa5de4dafaaeedb5ed80",
+    "tests/gpu/run_gpu_tests.py": "6dfcd006ff78b9f6c4548f818d03bd3c8e1da1dec9a2505eba0db73534e12ae9",
+    "tests/gpu/shader_qa.cpp": "93a8d357cf74aa272546f60ef37eb588a69662864c8ce1082bcc4394539058db",
+    "tests/gpu/shader_timing.cpp": "2931b351859b4d7542ffc20ed22aa47014c91fe8fd01c8223190b579898bc660",
+    "tests/gpu/wuwa_cache_common.hlsli": "845eb8356c0fb071237e95cbb9d906e03684aa6b0a07ade5ae339519fb547ee7",
+    "tests/gpu/wuwa_cache_refresh.cs_5_1.hlsl": "9b149f6c6dbdd7290e71b8e7b5196dfe99e52fe497f0b970d0c8729a8b465ece",
+    "tests/gpu/wuwa_cache_reproject.cs_5_1.hlsl": "9866df783add244a3de83c8b900dfb84269d51d0202fe7bafc37cadbd26ac002",
+    "validation/.gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+    "validation/gpu_results.json": "0cecfbcb503def9c843125c068f32bb3922ce330906494520b2ffb75b4702fb2",
+    "validation/gpu_timing_rgba16.json": "d6fa8f8fdc5738ff761e74bfb5ffe5f380a79666bccd320bce9f57ef9443b905",
+    "validation/README_VALIDATION.md": "81cb77d17aa0f94b2d3ca0bf776137038d720bd9ef2371b583d1ed33f692d1a1",
+    "validation/requirements.txt": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7",
+    "validation/Run-CPU.ps1": "5efb7597c9a15dd5d0b1138775defcc36c1c8421c2da8c88bea48e98001fdeee",
+    "validation/shader_reference.py": "a3949438bbb3cda755fca6386adde61caadd41a75a68b144ae310d8fefd840f2",
+    "validation/test_shader_reference.py": "f05b11ab69dee98494ae2a6278268dabed9f818c25ea96c7594d4702dcf82475",
+    "validation/cpu_results.json": "5178eed54b38aaddf6c3ac8219444828f2608119b3cd3923f4dc5d9192e76f2d"
+  },
+  "publication_reexecution": {
+    "cpu_test_count": 19,
+    "cpu_passed": true,
+    "gpu_fixture_count": 33,
+    "gpu_passed": true,
+    "adapter": "NVIDIA GeForce RTX 5070",
+    "timer_script_executed": true,
+    "timer_reexecution_values_replace_recorded_results": false
+  }
+}

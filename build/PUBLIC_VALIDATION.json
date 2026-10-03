@@ -1,0 +1,509 @@
+{
+  "source_only": true,
+  "byte_identical_runtime_and_test_sources": 93,
+  "native_change": "Only original full-path constant guard moved to configurable WUWA_TARGET_EXE_W header; algorithm text otherwise exact",
+  "overlay_runtime": "Byte-identical BCAD source; public test include paths adjusted for src layout",
+  "actual_public_builds": {
+    "native_on": "passed Microsoft ABI,21 actual shaders, workspace-only Detours",
+    "native_off": "passed; upstream NAME and no control exports",
+    "overlay": "passed MSVC API20/ImGui19250, including freshly cloned/prepared SDK"
+  },
+  "actual_public_tests": {
+    "history_assertions": 69,
+    "control_policy_assertions": 80,
+    "snapshot_accepted_reads": 137519,
+    "snapshot_torn_reads": 0,
+    "plain_c_transport_assertions": 54,
+    "path_cases": 4,
+    "msvc_abi_real_seh": "passed",
+    "com_and_thread_transactions": "passed"
+  },
+  "fresh_dependency_fetch": "All10 pinned checkouts clean in empty workspace directories: RenoDX+8 required dependencies+overlayReShade",
+  "shader_bytecode": {
+    "refresh": "12bb4cf7abfc4ba4c9c76de11443b34d9af4cd2ff9fb048c14a6146fd3620da0",
+    "reproject": "724551e9ae42ef72fa9d152b2dfc02c0f527f63552cdf0b7e9fe08c858f80006"
+  },
+  "scope": "No game launch, no F/G writes, no global toolchain/config changes; no game/model/power qualification",
+  "sources": [
+    {
+      "path": "native/addon.cpp",
+      "sha256": "4da8c191b6514ef370adb90a3856078b8417bede2434b4a53f4bd17c55f46d6a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/arg_plausibility.hpp",
+      "sha256": "67eb1dfeda9f196c58ba147244961c71ba64ea3288c9061572c49eff543a1008",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/bridge_params.hpp",
+      "sha256": "c5201199855b6a42e66ea2b455e0035f6aea777e01019b816bf99e179e00d830",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/capture_arena.hpp",
+      "sha256": "905f5a1a234022776d522b369cfbd785a2f1f97dda76ad069fa6b90516fad9c5",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/cmd_slots.hpp",
+      "sha256": "5c1a08d146109a2ada41076501412499f782cef11f8f5be2301a78c88e2d6f33",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/codec_gain.hpp",
+      "sha256": "1c9254be56d9ace222f8bbaa1aa3f4943a28264b78f1e50d3865c38d153fab27",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/command_state.hpp",
+      "sha256": "5548168f482ef08453f179359bffdc5d4e731747e5daf89ad709b44aecba324b",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/d3d11_bridge.hpp",
+      "sha256": "b4dae866d80102a7b53e2425d17512af774ec2b936a1d0a85e68237a5997018a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/debug.hpp",
+      "sha256": "c1ed9544096dd059f88c3392f7eb770bc9920045b5c848f9a867717a9dc1e115",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/declines.hpp",
+      "sha256": "949f310e9348f8a993d37e96f5bf1e031ea7040a6a836f0aeb06da8aa4e2b3d9",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/direct_call.hpp",
+      "sha256": "bb1422f1526207dcee5751cae43b307cc8c8e3679e25c943504f7545e2cc76cf",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/dlssnr.hpp",
+      "sha256": "53fe2491ac622efc05c21ba5d0f606d28c8e8ee71415de4893d8b5d372cce9d6",
+      "comparison": "verified exact textual adaptation: target guard moved to configurable header only"
+    },
+    {
+      "path": "native/edit_trace.hpp",
+      "sha256": "29ad1566a4df5b69f499b5ce8819a7fde8b7fc2ed50ca2bc13e2961451662000",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/evaluate_chain.hpp",
+      "sha256": "5fa1b7045ced43657ec6e6f33d147d13b976486be2ddef80f93f50106ec90d02",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/funnel.hpp",
+      "sha256": "dd724cdd8567dfbc8b3be0106392f4e63ad339e2f3770e6deb3c98870f0cdbfa",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/generic_compat.hpp",
+      "sha256": "5c6e955d52fce5c4dfcbca60722a5cdcd74df3c20262a8e5774a94fccf5a113f",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/gpu_lease.hpp",
+      "sha256": "75ce8e0a474d3e0cb0c7cc5ab541699213e9c4e291bf9d597773a26bf71ea3d0",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/gpu_timers.hpp",
+      "sha256": "7c7a75659772eac808bd8ec19ec9f243cf3524997e18957c91aa83eda167c91f",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/indirect_signature.hpp",
+      "sha256": "e15f50a4a78fddd387c1a016fe040164e77e40bdfd949c30903dbc78b8677959",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/lastgasp.hpp",
+      "sha256": "aef11e46887c126a92e0c0d79aed4471d014f7967e48ee4fc78e9a5d484ed36b",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/look_stage.hpp",
+      "sha256": "f7c5593dc2a3dbe6c553cc9f04aae0692db0bce8823fe00f610ba22172fe514c",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/module_guid.hpp",
+      "sha256": "fe79c0bf4ae1223b2e06c8347c6949126ff8e1d99b768653cab5a908eb370012",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/norm_trace.hpp",
+      "sha256": "a3937593c682e01c2d025a7fab89d183ba300ea5a46a63c570608bb1ef46cd22",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/report_bundle.hpp",
+      "sha256": "0b1711b8a1a26a00fc875e43e569b87d7700714d33fc59a6091877b65a5c6fd3",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/report_flow.hpp",
+      "sha256": "3d98e56c2e68056b6086877bde034bb80d8ec39b967bdbadee1a475f20baa64a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/report_upload.hpp",
+      "sha256": "84e16fe7cf5413affd9888659843dbad61418bfdec341698b6df2e5e747a397b",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/reset_epoch.hpp",
+      "sha256": "a41b6bf4a3c724bbf89cfa8559b26a1c70da9d05cb20a8a494c984507f60affc",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/root_arguments.hpp",
+      "sha256": "2a532a1452e1e286dd6565c599d198bbba8c1632076340438694674cbf9ac310",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/runtime_lock.hpp",
+      "sha256": "be16efb30d3704a8171efa2a1fe91c872e0659b795c7394b13f98144d29a3511",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/screenshot.hpp",
+      "sha256": "8f7c1c2ea764613912b4e90dce99eb7eba52e4cf21752f8d171930d253f1fc3b",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/bridge_depth.cs_5_0.hlsl",
+      "sha256": "334f7c0760315c59021b918fdc501aca6e4df534f65af2c86491d1b4cb2f298a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/codec_math.hlsli",
+      "sha256": "2d455d5007cd2070bbf3ac455ae51c896dbea89b597e4e923add7846fe27d5e9",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/legacy_apply.cs_5_1.hlsl",
+      "sha256": "61e6459696e9a293a5b92af317a580758d32cb4d42f7e4691e05d89e46b8b0d0",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/legacy_common.hlsli",
+      "sha256": "59f633155515de0aaa5791302798c2b4e1534b9c3d93c43d9672954ec232c197",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/legacy_decode.cs_5_1.hlsl",
+      "sha256": "1c1242c4370bed848a5e19bbe38e8a15fc6a6c2e208ee5fa013bfd67a2cbc033",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/legacy_encode.cs_5_1.hlsl",
+      "sha256": "8eec17fd3accff377ba3d79fd4f3017e9ebd0115304348a64b48ee888afc8e17",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/legacy_reduce.cs_5_1.hlsl",
+      "sha256": "bd75078d565afa73af50d30b2663ad27caecb4a483f1035a44284f98df28c88a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/legacy_reduce_unshaped.cs_5_1.hlsl",
+      "sha256": "0194acc2f40c34b19222432432e8b0bb2283b4e3d0337b2b1a554a4c46f96f1b",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/look_band.cs_5_1.hlsl",
+      "sha256": "0260837f02e939bb24fa225569a61b932b6ca5ddd1a93540862614d2e059f1e4",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/look_common.hlsli",
+      "sha256": "a19f4419ecaa0e8df7d2d70a15d61d87a7aefcdcb8c30d9709e8e1e3fc87ef50",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/look_compose.cs_5_1.hlsl",
+      "sha256": "e78aa477fdd6514678b18edcbe63d4f0f87a60e8d6ed8aabe91575cf870c8d69",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/look_trace.cs_5_1.hlsl",
+      "sha256": "1670c987c64d5d780fe06d65063da9cfbb14ab3c1c2572d2eaee3d94e180881a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/look_upsample.cs_5_1.hlsl",
+      "sha256": "770e0261a24a3346677affb2f83d1df5a09574cd4b28b3ecca3324e7b0ec2ea0",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_autoscale.cs_5_1.hlsl",
+      "sha256": "80a592e8ab8700840f73b3540a93514499f8810e9ab31605d5c24d624898b334",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_commit.cs_5_1.hlsl",
+      "sha256": "4eaa2008cd649af646e221591c5269d6cdb8444bf21750f416d40da510d95895",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_commit_exposure.cs_5_1.hlsl",
+      "sha256": "271bb8a29c7c525e60be9ef33d16a5e8da30c9a85e955eff49991126be528171",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_common.hlsli",
+      "sha256": "d8ee740602a0dfe39c17950be292e611b3d2f9e0cc0afdbbe1302e173bf7b066",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_encode.cs_5_1.hlsl",
+      "sha256": "deac6c09d7da400eb6c5a46075d8f5e8e89f048dbb36ae404c5d12b4e181b1d1",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_exposure_scale.cs_5_1.hlsl",
+      "sha256": "b8c97c24e39ca4420d207175408dfd8bf4bde34cfd3fed204b522d62922b4400",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_linearize.cs_5_1.hlsl",
+      "sha256": "1dde9ea63635fa949e815377d77ea40761294f6c018f4d67fed293cfc56ba004",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_pedestal_reduce.cs_5_1.hlsl",
+      "sha256": "cd3d9908708974f3a7ea9541e86b7980c3c73d4f8356ec0d86a34a8eb72cbbd5",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_pedestal_reduce_unshaped.cs_5_1.hlsl",
+      "sha256": "0638c089f2f680eac13dd5dc0ab6b6919032f767cd9d619222847aad23230656",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/v6_resolve.cs_5_1.hlsl",
+      "sha256": "ac06c4899a308bb374c9166c133b0f20256efe7f70498a338c4b69db878140d7",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/wuwa_cache_common.hlsli",
+      "sha256": "845eb8356c0fb071237e95cbb9d906e03684aa6b0a07ade5ae339519fb547ee7",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/wuwa_cache_refresh.cs_5_1.hlsl",
+      "sha256": "9b149f6c6dbdd7290e71b8e7b5196dfe99e52fe497f0b970d0c8729a8b465ece",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/shaders/wuwa_cache_reproject.cs_5_1.hlsl",
+      "sha256": "9866df783add244a3de83c8b900dfb84269d51d0202fe7bafc37cadbd26ac002",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/submission_tracker.hpp",
+      "sha256": "029a1da557b948a26725514f4c344f996f3a3765fe76ec28e41844a2a69739b5",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/telemetry.hpp",
+      "sha256": "cb17dd80decb8e6e9979ec6d0e287f35d34da2e0dc3bc7c4a2722e72afd0858c",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/tests/wuwa_control_policy_test.cpp",
+      "sha256": "663b25d8dfac9d23573f39c92a4937b169cf41270649c1092088c54834be7192",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/tests/wuwa_cost_policy_test.cpp",
+      "sha256": "a23eeee4aa34f1303cdc78e45cbac1885369fab2d5bf3642f50d1fd2d22cc18f",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/tests/wuwa_target_test.cpp",
+      "sha256": "24be0726f64941b48306505e7aad8ca6c1ddd6bf24f201f93b1034049d413f84",
+      "comparison": "public configurable full-path guard/test"
+    },
+    {
+      "path": "native/ui/i18n.hpp",
+      "sha256": "a108476085850ca39457e631047d0f9485a89288c88b23d628cc7560ca4542f7",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/bg.hpp",
+      "sha256": "fae7dd96cb4634ee28278a6eabf830e1acc37d0c1ad607ea3f64734777f69d44",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/de.hpp",
+      "sha256": "65961d467d6bb83047b2e2fd73545f199a55b4abe9817d9ac665847604daed21",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/es.hpp",
+      "sha256": "f92e4b881b49b40a7715aa08afd9fa4779262d4b9e9a1cb6130f7a2b6bc801fa",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/fr.hpp",
+      "sha256": "e0932a0dcdaf0bd88744f898ba5ca09ca2439408ed3b60812b895a8778c0c794",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/it.hpp",
+      "sha256": "8f0045ec2fe3f3f9e72392941c411440845a1196d8633eb65615582be88a8fc9",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/ja.hpp",
+      "sha256": "43ee53586988940b5c61bc8b2d19d985e7e8e04b96a6cbc9a0c47d1d8f8311d3",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/ko.hpp",
+      "sha256": "92f75e4e50280dac33879d64a720bd957e4ca42b7dc38114faf2f3c1ea4830c4",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/pt-BR.hpp",
+      "sha256": "29fee5d6c511de2a734f016085ece375ea45e85ab49465c76e96e92f37c1ac1c",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/ru.hpp",
+      "sha256": "70e69cedaff5149717f1dc9446e866872bafd36652b81e15be7e63be768ea711",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/sl.hpp",
+      "sha256": "2ccb8312f47261f1600a220f4eb8bf04371b2b06856a96f32b36ef6ccc86b7ba",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/th.hpp",
+      "sha256": "48ee12a9b52e097176180db0c6ec0d6e6fc93f9d321b07ece7cbdb9c57c5e66a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/tr.hpp",
+      "sha256": "9a0274911aa36fb57b84bea557d0154e4edc2038e75b6faab49aa45e1292f633",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/zh-Hans.hpp",
+      "sha256": "7dd61d5d8512ec396b252d0a5cb40c89ab0e8dc50446d00bfdefc33b653da84f",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/lang/zh-Hant.hpp",
+      "sha256": "16f11c83ee0158fdbe184690c302aba18efd52a08db70537b5f723106502390e",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/state_card.hpp",
+      "sha256": "5403a77a7bfacb66e96608d9b03b37f1e432718d65447e4b33cedc4f0b61502f",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/strings.hpp",
+      "sha256": "0b95ef7653515c7ae320d8e46d0cdb04f7923c97fdbb07bba179f780930c7dd9",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/theme.hpp",
+      "sha256": "97b32dd9a27160190ed99c07d03302376bc9d4fd42790e34d634c44e27ea758f",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/ui/widgets.hpp",
+      "sha256": "f284d054fe927f5a6937e8b8844df5734ac5d9f8dd9efd9bbf9674e1e9f478f7",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/wuwa_control.hpp",
+      "sha256": "f11412b9e7248618f967b46723e2782f7e965a00c7aed9d4e37c0eead9b70c94",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/wuwa_control_api.h",
+      "sha256": "21043609738e8bbad32ff9185bbe118e137bb0b45178fc92a025c577f65490d9",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/wuwa_cost_history.hpp",
+      "sha256": "3584774186cfae7daba047ea15771826a38ff815cac0876082ac75e6ae3fb684",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/wuwa_cost_policy.hpp",
+      "sha256": "c53116add7f06aad823d1bab6b76ad9aacf37ab39ba57559f8471294e78696a5",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/wuwa_target.hpp",
+      "sha256": "09fb6144c7f8f84aed64561a4c6b6ae5aaeb9e67318b38dba67d71b707a23f63",
+      "comparison": "public configurable full-path guard/test"
+    },
+    {
+      "path": "overlay/src/feeder-controls.hpp",
+      "sha256": "6dc7766b52a08e312d398e452396a9e224d87371fc3fa6c725b2696304ff0e17",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/imgui-abi.cpp",
+      "sha256": "0be15001d7e33e3c3665bc2dcab216e81b643eb9f49e52a5ca179b89e6f286ee",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/live-controls.hpp",
+      "sha256": "1a397c6df6ecec8f45151ac377e160a0f89fbe895ed913712cc5a6be0d6a5ac2",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/overlay-hotkey.hpp",
+      "sha256": "58b84ce413f06b93c8a99eb225de368403469bb726d246136b6c81b0181e5409",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/overlay.cpp",
+      "sha256": "b0efd8408b797905c4074e095bbebdcbea60739a554fa161beffa1c5d386b6c8",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/renodx-ui-bridge.hpp",
+      "sha256": "4aad999e63c87664137d45a6680854c5d4e6a372e691779dbb59ab05539e990f",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/renodx-ui-probe.hpp",
+      "sha256": "3cbc51e14c6f8c5bf4311da3bf751ff4c7027f7c0bcccd7cd250d9e6fe262eda",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/smoke-host-dx12.cpp",
+      "sha256": "8d0b002113a19d973f11f2b85b84038704f88ba99d969f6242d0bd5997aba3b6",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/smoke-host.cpp",
+      "sha256": "bb0e1d3bac8223c121bd7a0440784866b589ffb1d27dd55d84af8337e0b3051a",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/status-badge.hpp",
+      "sha256": "03daa0840a47d2f0b9e788b9747fb4ac45dab5a1e4c562ad2c3376b733f7df39",
+      "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "overlay/src/wuwa-controls.hpp",
+      "sha256": "20408e20e90d886861915a2adb707ef321352a7ed0b9a5921ecf0c39d9ddb78a",
+      "comparison": "byte identical to final validated source"
+    }
+  ]
+}

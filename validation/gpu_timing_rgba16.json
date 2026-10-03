@@ -1,0 +1,64 @@
+{
+  "adapter": "NVIDIA GeForce RTX 5070",
+  "fixture": "product full-edited cache; isolated kernels, no NGX/NR/game",
+  "width": 2560,
+  "height": 1440,
+  "warmups_per_kernel": 2,
+  "samples_per_kernel": 10,
+  "timestamp_frequency_hz": 1000000000,
+  "measured_gpu_total_ms_including_warmup": 6.793216,
+  "fence_timeout_ms": 5000,
+  "fence_completed": true,
+  "queue": "one own-process direct queue",
+  "texture_format": "current/edited/output RGBA16_FLOAT, motion RG32_FLOAT, depth R32_FLOAT",
+  "init": "full texture upload before timestamps; uniform linear baseline and synthetic full edited RGB, alpha1, depth0.5; all-zero full-resolution motion",
+  "history": "2x20B/pixel full-edited/reference half records, default-heap UAV buffers, refreshed A then reproject A-to-B; global UAV ordering each dispatch",
+  "timed": "Dispatch plus following global UAV barrier; excludes init/upload, allocation, pipeline/root binding, query resolution, fence wait",
+  "kernels": [
+    {
+      "name": "refresh",
+      "median_ms": 0.21544,
+      "p95_ms": 0.2241648,
+      "samples_ms": [
+        0.21728,
+        0.215136,
+        0.22896,
+        0.19888,
+        0.215872,
+        0.215584,
+        0.215296,
+        0.2144,
+        0.214784,
+        0.218304
+      ]
+    },
+    {
+      "name": "reproject",
+      "median_ms": 0.327296,
+      "p95_ms": 0.4935616,
+      "samples_ms": [
+        0.327168,
+        0.345088,
+        0.61504,
+        0.3264,
+        0.327424,
+        0.325184,
+        0.3272,
+        0.326688,
+        0.327552,
+        0.327392
+      ]
+    }
+  ],
+  "generation": "product-full-edited-cache",
+  "source_and_shader_sha256": {
+    "shader_timing.cpp": "2931b351859b4d7542ffc20ed22aa47014c91fe8fd01c8223190b579898bc660",
+    "shader_timing.exe": "8a894515ba89db5936becedb3c6e391989d306a8001ddad917d95fdd677b6078",
+    "shader_qa.cpp": "93a8d357cf74aa272546f60ef37eb588a69662864c8ce1082bcc4394539058db",
+    "wuwa_cache_common.hlsli": "845eb8356c0fb071237e95cbb9d906e03684aa6b0a07ade5ae339519fb547ee7",
+    "wuwa_cache_refresh.cs_5_1.hlsl": "9b149f6c6dbdd7290e71b8e7b5196dfe99e52fe497f0b970d0c8729a8b465ece",
+    "wuwa_cache_reproject.cs_5_1.hlsl": "9866df783add244a3de83c8b900dfb84269d51d0202fe7bafc37cadbd26ac002",
+    "wuwa_cache_refresh.cso": "12bb4cf7abfc4ba4c9c76de11443b34d9af4cd2ff9fb048c14a6146fd3620da0",
+    "wuwa_cache_reproject.cso": "724551e9ae42ef72fa9d152b2dfc02c0f527f63552cdf0b7e9fe08c858f80006"
+  }
+}

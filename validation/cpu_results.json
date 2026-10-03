@@ -1,0 +1,14 @@
+{
+  "qualification": "independent product float32 oracle fixtures; not game/NGX/model/power validation",
+  "test_count": 19,
+  "passed": true,
+  "command": "python -m unittest discover -s validation -p test_shader_reference.py -v",
+  "source_sha256": {
+    "shader_reference.py": "a3949438bbb3cda755fca6386adde61caadd41a75a68b144ae310d8fefd840f2",
+    "test_shader_reference.py": "f05b11ab69dee98494ae2a6278268dabed9f818c25ea96c7594d4702dcf82475"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  }
+}

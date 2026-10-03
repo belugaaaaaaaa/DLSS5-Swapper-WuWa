@@ -1,0 +1,11 @@
+The published native source corresponds to the final WuWa product snapshot that produced the validated local `050AD319...` candidate. The public adaptation changes only executable selection: `WUWA_TARGET_EXE_W` is supplied at build time, and the actual process must match its complete canonical path. An empty target or relative path denies experimental controls. The exact game path is generated outside the repository.
+
+`RENODX_WUWA_COST_EXPERIMENT=1` includes the control API and interval-two NR/cache candidate. Runtime `WuWaCostMode=0` uses every-frame NR; `1` requests the tested cache policy with confidence rejection, full-NR fallback, completion/readiness checks and bounded recovery. It does not continually lower neural frequency or secretly lower the working resolution.
+
+The cache refresh preserves the NR output and source alpha. A 20-byte pixel record stores enhanced RGB, reference RGB, raw depth and validity. Reuse uses the motion/depth contract and confidence checks before enhanced-history plus current/reference difference. Host-level resource or whole-history admission failure falls back to normal NR. After a reuse dispatch is recorded, pixels whose guides/history fail the confidence checks use the original DLSS result; they do not rerun a full neural model in that frame. The completed timing budget accepts only matching stream/epoch/settings/policy samples.
+
+The plain C API is ABI1, state376 bytes and command24 bytes. Setters queue bounded requests; the render lifecycle applies and persists them, and acknowledges the request with readback. `nr_enabled` is configuration, not proof of successful NR. Model success, recorded cache reprojection and completed total GPU timing remain separate observations. Resource minimum-driver declarations are warnings, not static rejection proofs.
+
+The public source is built inside a pinned RenoDX addon staging directory because relative shared-header includes are part of the upstream layout. No shared utilities, global CMake or vendor files are patched. Instructions and actual source tests are in `../build/README.md`.
+
+This is an experimental source release. The isolated CPU/ABI/shader tests do not establish live game quality, performance, stability, power or fan behaviour. The inherited Generic teardown/reload/device-recreation code is not newly qualified by this project.

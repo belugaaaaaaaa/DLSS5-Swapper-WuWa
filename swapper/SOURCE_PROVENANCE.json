@@ -1,0 +1,18 @@
+{
+  "upstream": "https://github.com/rakanki911/DLSS5-Swapper",
+  "tag": "v2.2.7",
+  "commit": "3b3b0efb5472df7fc806d7aff31c1d95819500c5",
+  "license": "MIT",
+  "derivedIntegrationAsarSha256": "5cb38cf6052e726e36566edea1899f0d176fec2109bfc169cce75067fb06f0f4",
+  "patchedSourceFiles": [
+    "main.js",
+    "src/core/backend-manager.js",
+    "src/core/wuwa-install.js",
+    "src/renderer/renderer.js",
+    "src/overlay-bridge.js"
+  ],
+  "publicScopeChanges": "Explicit selected-root canonical Client recognition; no machine-specific deployment receipts or binary payloads.",
+  "defaultDistribution": "source-only",
+  "frozenNativeBinaryReferenceSha256": "050ad319cdb0714f27eaaade32e99d56d18bf52efe0f1e8603001bae3b911713",
+  "frozenOverlayBinaryReferenceSha256": "bcadba5ae77de2de8918f8abdcd34494e04883757e5356f3fad942e5a56bab6f"
+}

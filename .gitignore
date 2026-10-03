@@ -1,0 +1,43 @@
+# Generated dependencies and build outputs
+node_modules/
+vendor/
+artifacts/
+out/
+dist/
+build-output/
+local-config.json
+*.local.json
+# Build manifests/headers may contain the user's absolute game path.
+native-build.json
+overlay-build.json
+target-exe.hpp
+native-sources.json
+native-shaders.json
+*.user
+*.obj
+*.o
+*.lib
+*.pdb
+*.exe
+*.dll
+*.addon64
+*.cso
+*.asar
+*.zip
+*.7z
+__pycache__/
+*.pyc
+
+# Personal data and test captures
+deployment*.json
+launcher-deployment*.json
+game-deployment*.json
+*.log
+*.csv
+ReShade.ini
+swapper-manifest.json
+backups/
+captures/
+sessions/
+.env
+.env.*

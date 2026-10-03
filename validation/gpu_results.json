@@ -1,0 +1,342 @@
+{
+  "generation": "product-full-edited-cache; previous prototype results are separate provenance",
+  "qualification": "isolated D3D12 GPU numerical shader fixtures; not NGX/game/performance/power qualification",
+  "adapter": {
+    "adapter": "NVIDIA GeForce RTX 5070",
+    "vendor_id": 4318,
+    "device_id": 12036,
+    "dedicated_video_memory": 12523143168,
+    "mode": 1,
+    "pixels": 64,
+    "record_bytes": 20,
+    "fence_completed": true,
+    "fence_timeout_ms": 5000,
+    "format": "rgba8",
+    "typed_uav_load_store": true
+  },
+  "fixture_count": 33,
+  "passed": true,
+  "output_tolerance": {
+    "relative": 3e-06,
+    "absolute": 3e-06
+  },
+  "history_half_tolerance": {
+    "relative": 0.0011,
+    "absolute": 6e-08
+  },
+  "fixture_size": [
+    8,
+    8
+  ],
+  "history_words_exact_all_fixtures": true,
+  "source_and_shader_sha256": {
+    "wuwa_cache_common.hlsli": "845eb8356c0fb071237e95cbb9d906e03684aa6b0a07ade5ae339519fb547ee7",
+    "wuwa_cache_refresh.cso": "12bb4cf7abfc4ba4c9c76de11443b34d9af4cd2ff9fb048c14a6146fd3620da0",
+    "wuwa_cache_refresh.cs_5_1.hlsl": "9b149f6c6dbdd7290e71b8e7b5196dfe99e52fe497f0b970d0c8729a8b465ece",
+    "wuwa_cache_reproject.cso": "724551e9ae42ef72fa9d152b2dfc02c0f527f63552cdf0b7e9fe08c858f80006",
+    "wuwa_cache_reproject.cs_5_1.hlsl": "9866df783add244a3de83c8b900dfb84269d51d0202fe7bafc37cadbd26ac002",
+    "shader_qa.cpp": "93a8d357cf74aa272546f60ef37eb588a69662864c8ce1082bcc4394539058db",
+    "shader_qa.exe": "c6e193b204f515add2b1f078fe9a18a6fc7463ded8dd6b5b1abf56c693d54fc9",
+    "run_gpu_tests.py": "07a16149ff3ddd69ce40ea5e2a90d4205c0607c39362ec76b4a983617028c912",
+    "../shader_reference.py": "a3949438bbb3cda755fca6386adde61caadd41a75a68b144ae310d8fefd840f2"
+  },
+  "results": [
+    {
+      "name": "refresh_basic",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_large_nr_rgb_unclipped",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_nonfinite_nr_rgb_preserved_history_invalid",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 60,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_uncacheable_hdr_nr_rgb_preserved",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 0,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_srgb",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_zero_motion_all_edges",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_integer_translation",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 56,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_fractional_motion",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 49,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_raw_depth_rejection",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 40,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_equal_luma_rgb_rejection",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 0,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_nonfinite_invalid_offscreen",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 58,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_max_motion_cap",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 0,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_lowres_guides_with_offsets",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 56,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_zero_weight_bad_neighbor",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 63,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_srgb",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 2.9802322387695312e-08,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_hdr_composite_overflow",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 0,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_half_quantization",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 49,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_no_previous_cache_nr_preserved",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_invalid_depth_nr_preserved",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 0,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_invalid_reference_valid_nr_preserved",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 0,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_large_nr_edit_not_clipped",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_hdr1024_dark001_no_cancellation",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_sdr_bright_reference_dark_edit",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_exact_half_maximum",
+      "kernel": "refresh",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_exact_half_maximum",
+      "kernel": "reproject",
+      "format": "rgba32",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_rgba16_large_static_nr_alpha",
+      "kernel": "refresh",
+      "format": "rgba16",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_rgba16_zero_motion_full_edit_alpha",
+      "kernel": "reproject",
+      "format": "rgba16",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_rgba8_large_static_nr_alpha",
+      "kernel": "refresh",
+      "format": "rgba8",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_rgba8_zero_motion_full_edit_alpha",
+      "kernel": "reproject",
+      "format": "rgba8",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_rgba16_hdr1024_dark001",
+      "kernel": "refresh",
+      "format": "rgba16",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_rgba16_hdr1024_dark001",
+      "kernel": "reproject",
+      "format": "rgba16",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "refresh_rgba8_bright_dark_precision",
+      "kernel": "refresh",
+      "format": "rgba8",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    },
+    {
+      "name": "reuse_rgba8_bright_dark_precision",
+      "kernel": "reproject",
+      "format": "rgba8",
+      "passed": true,
+      "valid_pixels": 64,
+      "max_output_abs_error": 0.0,
+      "history_words_exact": true
+    }
+  ]
+}
