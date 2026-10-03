@@ -12,4 +12,4 @@ The native F8 panel uses a versioned C ABI, bounded commands and coherent state 
 
 Public builds require an explicitly supplied target executable path. Empty configuration fails closed. Target metadata is checked during Swapper staging and installation; users must rebuild for a different installation path. Do not weaken this to basename matching.
 
-The tests in this repository exercise components and selected resource/control paths. They do not reproduce the complete game, driver, runtime or model. Full NR execution, the expected game hook, F8 behavior in game, cache hit rate, motion artifacts, FPS and power all remain unqualified.
+The component tests exercise selected resource/control paths and do not reproduce the complete game, driver, runtime or model. Subsequent user acceptance and game-log evidence confirm NR execution in the installed local build; see [the user validation record](USER_VALIDATION.zh-CN.md). Cache hit rate, individual F8 operations, multi-scene visual behavior and controlled FPS/power improvements remain unmeasured. The feedback does not qualify every public rebuild or hardware configuration.

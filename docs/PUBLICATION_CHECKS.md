@@ -13,3 +13,5 @@ The public source is a later packaging revision of the historical local integrat
 Native, overlay and Swapper build/test instructions are under `build/README.md`, `overlay/README.md` and `swapper/BUILD.md`. Further test reports should identify the exact source revision and conditions.
 
 No actual Wuthering Waves scene, model inference, full-frame benchmark, image-quality comparison, power/temperature measurement or fan test was run as part of this publication. The existing local installation was not changed. Component success must not be represented as game acceptance.
+
+After initial publication, the user supplied actual game feedback and accepted the installed local version. Read-only game-log checks also confirmed NR execution. This subsequent evidence is documented separately in [the user validation record](USER_VALIDATION.zh-CN.md); it does not retrospectively change the component/build test conditions above.

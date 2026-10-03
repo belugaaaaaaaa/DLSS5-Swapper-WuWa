@@ -122,8 +122,10 @@ preservation does not mean a rejected reuse frame retains the neural look.
 Same-scene live validation must measure accepted base evaluations, inference/
 reuse/rejection counts, GPU stage times, visual continuity and power/fan behavior
 at fixed settings and frame-rate budget. Generated display frames must not
-advance base-evaluation cadence. There is no game/NR/model/FPS/fan result in
-this package.
+advance base-evaluation cadence. These component fixtures contain no game,
+model-inference, FPS or fan benchmark. Subsequent user acceptance and NR
+execution logs from the installed local build are documented separately in
+[the user validation record](../docs/USER_VALIDATION.zh-CN.md).
 
 The frozen HLSL snapshots retain their MIT notices. See
 [dependency notices](../tests/gpu/NOTICE.md) for external SDK/compiler/Python/

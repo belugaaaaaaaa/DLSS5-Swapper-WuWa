@@ -2,9 +2,9 @@
 
 基于 [DLSS5-Swapper v2.2.7](https://github.com/rakanki911/DLSS5-Swapper)、[RenoDX](https://github.com/clshortfuse/renodx) 和 [RenoDX-DLSS5-Generic](https://github.com/PEQHUB/RenoDX-DLSS5-Generic) 的鸣潮专用修改：带检查的 NR 历史缓存、原生 F8 面板，以及插件安装与卸载流程。
 
-**状态：实验源码，尚未完成实际鸣潮场景验收。** 已验证部分独立 GPU 运算、控制接口和安装逻辑；尚未验证游戏中的缓存命中率、拖影、整体帧率、功耗、温度或风扇转速。这里的“DLSS5”沿用上游项目名称，不代表本仓库是 NVIDIA 官方发布或官方游戏支持。
+**状态：实验源码；已获使用者在实际鸣潮中的使用验收。** 使用者确认此前显卡“起飞”的体验问题已改善，本次游戏日志也记录了插件加载、实际 NR 求值及模型 GPU 耗时。该反馈对应已安装的本地版本；缓存命中率、同场景性能/功耗降幅和多场景画质仍未进行系统性对照。详见 [实际游戏验收记录](docs/USER_VALIDATION.zh-CN.md)。这里的“DLSS5”沿用上游项目名称，不代表本仓库是 NVIDIA 官方发布或官方游戏支持。
 
-This is an experimental, source-only Wuthering Waves integration. Component tests do not establish in-game performance, image quality, or power savings.
+This is an experimental, source-only Wuthering Waves integration. The installed local build has user acceptance and game-log evidence of NR execution. Controlled A/B performance, power and visual-quality comparisons remain unmeasured; this observation does not qualify every public rebuild or hardware configuration.
 
 ## 相比原版改了什么
 
@@ -37,6 +37,8 @@ This is an experimental, source-only Wuthering Waves integration. Component test
 安装完成后，启动鸣潮并使用 F8 面板。打开面板和插件加载成功，并不能证明 NR 或缓存已经在当前场景执行；应查看面板中的实际状态，并按 [游戏验收方法](docs/GAME_VALIDATION.zh-CN.md) 进行对照测试。
 
 ## 已有证据
+
+2026-10-03，使用者提供实际鸣潮截图并明确确认问题已解决。游戏日志包含 NR `ENGAGED`、实际求值计数和非零模型 GPU 时间。截图叠加层显示约 196 FPS、77°C、99% GPU 利用率及 236.9 W；这些是单个时刻的读数，风扇体验改善来自使用者反馈，尚无改动前对照或风扇转速采样。完整证据范围见 [用户验收记录](docs/USER_VALIDATION.zh-CN.md)。
 
 在 RTX 5070 上，独立 2560×1440 RGBA16F 合成输入测试中，缓存写入中位数为 **0.215440 ms**，重投影为 **0.327296 ms**；对应 p95 为 0.224165 ms 和 0.493562 ms。每项 2 次预热、10 次采样，单测试队列、均匀输入、零运动。这不包含 NR 模型、NGX、真实游戏、完整帧或功耗测量。
 

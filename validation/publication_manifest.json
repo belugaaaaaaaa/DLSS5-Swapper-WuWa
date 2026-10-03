@@ -29,7 +29,7 @@
     "validation/.gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
     "validation/gpu_results.json": "0cecfbcb503def9c843125c068f32bb3922ce330906494520b2ffb75b4702fb2",
     "validation/gpu_timing_rgba16.json": "d6fa8f8fdc5738ff761e74bfb5ffe5f380a79666bccd320bce9f57ef9443b905",
-    "validation/README_VALIDATION.md": "81cb77d17aa0f94b2d3ca0bf776137038d720bd9ef2371b583d1ed33f692d1a1",
+    "validation/README_VALIDATION.md": "dc581150a9ea93ae4c9e30d78974e7fb35a145f295c145ef17d103241c03d1f6",
     "validation/requirements.txt": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7",
     "validation/Run-CPU.ps1": "5efb7597c9a15dd5d0b1138775defcc36c1c8421c2da8c88bea48e98001fdeee",
     "validation/shader_reference.py": "a3949438bbb3cda755fca6386adde61caadd41a75a68b144ae310d8fefd840f2",
