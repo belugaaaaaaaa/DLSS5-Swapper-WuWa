@@ -4,9 +4,9 @@
 
 我们从鸣潮开始，把 Swapper 的使用体验、NR（神经渲染）计算开销和玩家可接受的画质放在一起优化。开源的目的，是让玩家能分享有效设置、发现不同机器上的问题，也让开发者共同改进算法和使用流程。改进是否有价值，要看玩家能否以满意的画面更舒适地玩游戏。
 
-**当前发布源码，尚无面向所有玩家安装路径的通用一键包。** 已安装的鸣潮本地版本获得用户验收，用户确认显卡“起飞”的体验问题改善；游戏日志也确认 NR 实际运行。这是已有成果，后续要靠更多机器和场景的反馈，找出哪些改动有效、哪些还需要调整。
+**Releases 正在准备无需编译的鸣潮轻量部署助手；源码仓库继续不含二进制。** 玩家流程是下载部署助手 ZIP、解压、打开 `Start-Setup.cmd`，选择自己的鸣潮根目录并安装。完整步骤与当前验证状态见 [部署指南](docs/DEPLOYMENT.zh-CN.md)。已安装的鸣潮本地版本获得用户验收，用户确认显卡“起飞”的体验问题改善；游戏日志也确认 NR 实际运行。这是已有成果，后续要靠更多机器和场景的反馈，找出哪些改动有效、哪些还需要调整。
 
-Our goal is to help players reduce neural-rendering GPU overhead while keeping image quality they enjoy. We start with Wuthering Waves and welcome test reports, settings, visual comparisons and code contributions. The current release is source-only; the installed local build has user acceptance, while broader hardware support and controlled A/B results are still being developed.
+Our goal is to help players reduce neural-rendering GPU overhead while keeping image quality they enjoy. We start with Wuthering Waves and welcome test reports, settings, visual comparisons and code contributions. A lightweight deployment-helper release is being prepared for players; the source repository contains no binaries. The installed local build has user acceptance, while broader hardware support and controlled A/B results are still being developed.
 
 ## 玩家怎样参与
 
@@ -42,14 +42,17 @@ Our goal is to help players reduce neural-rendering GPU overhead while keeping i
 - `swapper/`：上游 Swapper 源码及鸣潮安装流程。
 - `native/`：NR 缓存、GPU 提交检查、控制接口及测试。
 - `overlay/`：原生 F8 面板。
+- `deploy/`：轻量部署助手、目标路径绑定、固定来源提取与发布包构建。
 - `build/`：固定依赖版本、编译与本地插件准备方法。
 - `tests/gpu/`、`validation/`：独立 GPU/CPU 测试、数值结果与测试条件。
 
 ## 构建与使用
 
-玩家入口是 [玩家指南](docs/PLAYERS.zh-CN.md)。开发者本地构建请阅读 [原生插件构建方法](build/README.md) 和 [Swapper 构建说明](swapper/BUILD.md)。本仓库不提供 NVIDIA 模型、运行库、游戏文件、编译器或整包启动器；第三方组件由使用者按各自许可证另行取得。
+玩家入口是 [玩家指南](docs/PLAYERS.zh-CN.md) 和 [轻量部署步骤](docs/DEPLOYMENT.zh-CN.md)。Releases 的部署包提供自有插件与 F8 面板，工具自动在玩家本机取得并校验固定版本的原版组件，也可以选择已有官方原版 EXE；不运行原版程序，不要求编译或 Swapper 常驻。旧的个人完整 Swapper 便携包不公开。
 
-鸣潮目标路径由使用者本地指定。原生插件必须针对同一个主程序路径构建；Swapper 安装时验证目标元数据。源码中不包含开发者的本机游戏路径。
+开发者本地构建请阅读 [原生插件构建方法](build/README.md)、[Swapper 构建说明](swapper/BUILD.md) 与 [部署包构建方法](deploy/README.md)。源码仓库不含构建好的插件；部署 ZIP 不提供 NVIDIA 模型、运行库、游戏文件、编译器或整包启动器，第三方组件保留各自许可。
+
+鸣潮目标路径由使用者明确选择。轻量助手在本机绑定该完整路径并验证元数据；源码构建也可针对同一路径准备插件。源码和发布模板不包含开发者的本机游戏路径。
 
 安装完成后，启动鸣潮并使用 F8 面板。打开面板和插件加载成功，并不能证明 NR 或缓存已经在当前场景执行；应查看面板中的实际状态，并按 [游戏验收方法](docs/GAME_VALIDATION.zh-CN.md) 进行对照测试。
 
@@ -65,6 +68,6 @@ Our goal is to help players reduce neural-rendering GPU overhead while keeping i
 
 本项目基于 [DLSS5-Swapper v2.2.7](https://github.com/rakanki911/DLSS5-Swapper)、[RenoDX](https://github.com/clshortfuse/renodx) 和 [RenoDX-DLSS5-Generic](https://github.com/PEQHUB/RenoDX-DLSS5-Generic)。这里的“DLSS5”沿用上游项目名称，项目为独立社区适配。
 
-本项目源码使用 MIT 许可证；各上游版权声明保留在对应目录。第三方依赖继续适用其自己的许可证，根目录 MIT 不重新授权这些依赖、模型或游戏文件。见 [LICENSE](LICENSE)、[第三方说明](THIRD_PARTY_NOTICES.md) 和 [来源记录](docs/PROVENANCE.md)。
+本项目原创源码使用 MIT 许可证；各上游版权声明保留在对应目录。第三方依赖继续适用其自己的许可证，根目录 MIT 不重新授权这些依赖、SDK、模型或游戏文件。轻量部署包也保留 Apache/BSD/MIT、NVIDIA SDK 与 Microsoft 等适用完整条款。见 [LICENSE](LICENSE)、[第三方说明](THIRD_PARTY_NOTICES.md)、[部署许可与来源](deploy/THIRD_PARTY.md) 和 [来源记录](docs/PROVENANCE.md)。
 
 欢迎把你的设置经验、实测结果或代码改进贡献回来，让更多玩家找到适合自己的低负担玩法。

@@ -4,6 +4,8 @@ These checks support the community goal of reducing GPU overhead with acceptable
 
 The public source is a later packaging revision of the historical local integration. These checks qualify source/build behavior, not an actual game session.
 
+The initial source publication checks below are retained as historical evidence. The later deployment helper adds an unbound target template and protected installation entry; its checks are recorded in [deployment validation](DEPLOYMENT.zh-CN.md). Renderer/shader algorithms remain unchanged. Current source hashes are kept in `build/PUBLIC_VALIDATION.json`, while historical test counts keep their original scope.
+
 - Source-only Swapper tests: 293 total, 291 passed, zero failures, two skips for an absent optional community-server sibling. This includes the 13 dedicated installer IPC tests. See `swapper/BUILD.md` for the reproducible command and scope.
 - The public GPU fixture packaging was re-executed: 19 CPU reference tests and 33 physical RTX 5070 GPU checks passed. Frozen shader source remains byte-identical to the measured source. Original historical measurements and their binary hashes are preserved, separately from packaging hashes.
 - The dependency fetch was exercised from an empty directory. Every declared checkout reached its exact pinned commit with zero tracked changes.

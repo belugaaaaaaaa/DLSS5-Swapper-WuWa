@@ -1,7 +1,7 @@
 {
   "source_only": true,
   "byte_identical_runtime_and_test_sources": 93,
-  "native_change": "Only original full-path constant guard moved to configurable WUWA_TARGET_EXE_W header; algorithm text otherwise exact",
+  "native_change": "Canonical complete-path guard supports the original configured target or a volatile 260-wchar exported template slot; renderer/cache algorithm source unchanged.",
   "overlay_runtime": "Byte-identical BCAD source; public test include paths adjusted for src layout",
   "actual_public_builds": {
     "native_on": "passed Microsoft ABI,21 actual shaders, workspace-only Detours",
@@ -447,7 +447,7 @@
     },
     {
       "path": "native/wuwa_target.hpp",
-      "sha256": "09fb6144c7f8f84aed64561a4c6b6ae5aaeb9e67318b38dba67d71b707a23f63",
+      "sha256": "cd2fad93aa4ad2434726bb9af073a122f0ab4abd2ccda41fef91520afa101029",
       "comparison": "public configurable full-path guard/test"
     },
     {
@@ -504,6 +504,17 @@
       "path": "overlay/src/wuwa-controls.hpp",
       "sha256": "20408e20e90d886861915a2adb707ef321352a7ed0b9a5921ecf0c39d9ddb78a",
       "comparison": "byte identical to final validated source"
+    },
+    {
+      "path": "native/tests/wuwa_target_template_test.cpp",
+      "sha256": "55e6caedad9f3677e53e41538ee8727ef59e65c7d4320cf05202b17149d206c1"
     }
-  ]
+  ],
+  "deployment_target_binding_checks": {
+    "disk_binder_tests": 27,
+    "optimized_guard_cases": 18,
+    "compilers": "MSVC14.44 and Zig0.14.1, Microsoft ABI, /O2",
+    "real_template_pe_and_slot_verified": true,
+    "game_execution": false
+  }
 }

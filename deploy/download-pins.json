@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "node": {
+    "version": "24.13.0",
+    "url": "https://nodejs.org/dist/v24.13.0/node-v24.13.0-win-x64.zip",
+    "filename": "node-v24.13.0-win-x64.zip",
+    "sha256": "ca2742695be8de44027d71b3f53a4bdb36009b95575fe1ae6f7f0b5ce091cb88",
+    "executableSha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
+    "directory": "node-v24.13.0-win-x64",
+    "hashSource": "https://nodejs.org/dist/v24.13.0/SHASUMS256.txt"
+  },
+  "officialSwapper": {
+    "version": "2.2.7",
+    "url": "https://github.com/rakanki911/DLSS5-Swapper/releases/download/v2.2.7/DLSS5-Swapper-2.2.7-portable.exe",
+    "filename": "DLSS5-Swapper-2.2.7-portable.exe",
+    "sha256": "b2385736d88e9b301b088c0ce8cc1add29851cba611474b9f02d9bf6e43d63d0",
+    "bytes": 232893049,
+    "hashSource": "https://github.com/rakanki911/DLSS5-Swapper/releases/tag/v2.2.7"
+  },
+  "sevenZip": {
+    "version": "7zip-bin 5.2.0 / 7-Zip 21.07",
+    "url": "https://registry.npmjs.org/7zip-bin/-/7zip-bin-5.2.0.tgz",
+    "filename": "7zip-bin-5.2.0.tgz",
+    "sha256": "04f9738ee00be8be53f5d06254a9e6e4b5117b17f8b74058477d870e62764a7d",
+    "executableSha256": "b0cfdeaf429f5cc53f85123dd8f5a5feb92c19d31aa34df257edf9a26be05f95",
+    "hashSource": "Fixed npm package; SHA512 also matches its registry dist.integrity",
+    "source": "https://www.7-zip.org/download.html"
+  }
+}

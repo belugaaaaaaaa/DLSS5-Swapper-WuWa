@@ -1,6 +1,6 @@
 # Windows source build
 
-These tools support the community goal of reducing neural-rendering GPU overhead while keeping image quality players enjoy. They let contributors rebuild, test and review changes under documented conditions. Ordinary players can participate through [the player guide](../docs/PLAYERS.zh-CN.md); this chapter is for developers preparing matching local builds. The current public release has no universal ready-to-run installer.
+These tools support the community goal of reducing neural-rendering GPU overhead while keeping image quality players enjoy. They let contributors rebuild, test and review changes under documented conditions. Players can use the [deployment helper](../docs/DEPLOYMENT.zh-CN.md) without a compiler; this chapter is for developers. The source repository contains no binaries; release ZIPs include our unbound native template and F8 addon, with external components obtained on the player's machine.
 
 Use **PowerShell7 (`pwsh`)**, Python3.10+, Git, and Windows x64. Windows PowerShell5.1 is not supported: these scripts use `Path.GetRelativePath` and `Path.IsPathFullyQualified` from modern .NET. The shader compiler calls Windows' `d3dcompiler_47.dll`; all21 included shader entry points target SM5.0/5.1, so FXC/DXC executables are not required for this snapshot.
 
@@ -59,6 +59,8 @@ build/Build-Overlay.ps1 @overlayTools `
 ```
 
 The ON build requires an existing absolute shipping executable path and generates `target-exe.hpp` containing `WUWA_TARGET_EXE_W`. Native controls/cache are allowed only when the running executable's full canonical path matches that compiled target. The common Unreal basename does not opt another game in. An empty/unconfigured or relative target is denied. Paths at or above260 characters retain the original conservative rejection. The public repository contains no private installation path.
+
+For the lightweight deployment helper, use `-TargetTemplate` instead of `-TargetExe`. This exports an initialized, volatile 260-character target slot and writes `native-build-template.json`. Its unbound marker is denied. The helper checks the complete template hash and PE export/data bounds before writing a selected full path into a separate local copy; runtime matching still uses the complete canonical path. `-TargetTemplate`, `-TargetExe` and `-MacroOff` are mutually exclusive. See [deployment release packaging](../deploy/README.md).
 
 The build stages this source under the explicit dependency checkout's untracked `src/addons/wuwa-public` directory to preserve RenoDX's relative include layout. It does not patch shared utilities, global CMake, or vendor sources. Detours objects/static library are built from the pinned unchanged sources into `BuildRoot/detours`, not into the vendor checkout. Every shader is compiled from the actual source and embedded as a byte array; `native-shaders.json` records both source and bytecode SHA256.
 

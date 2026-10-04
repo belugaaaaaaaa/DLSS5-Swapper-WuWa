@@ -8,6 +8,7 @@ param(
     [Parameter(Mandatory=$true)][string]$ZigRoot,
     [Parameter(Mandatory=$true)][string]$BuildRoot,
     [string]$TargetExe,
+    [switch]$TargetTemplate,
     [switch]$MacroOff,
     [string]$Git = 'git'
 )
@@ -15,16 +16,21 @@ param(
 $taskRepo = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $NativeRoot = (Resolve-Path -LiteralPath $NativeRoot).Path
 $BuildRoot = [IO.Path]::GetFullPath($BuildRoot)
+if ($TargetTemplate -and ($MacroOff -or $TargetExe)) { throw '-TargetTemplate is an ON template build and cannot be combined with -MacroOff or -TargetExe.' }
 Assert-NativePins -NativeRoot $NativeRoot -Git $Git
 Use-BuildTools -VcRoot $VcRoot -SdkRoot $SdkRoot -SdkLibRoot $SdkLibRoot -SdkVersion $SdkVersion -BuildRoot $BuildRoot
 $taskTarget = ''
-if (!$MacroOff) {
+if (!$MacroOff -and !$TargetTemplate) {
     if (!$TargetExe -or ![IO.Path]::IsPathFullyQualified($TargetExe)) { throw 'ON build requires an absolute -TargetExe for the selected WuWa installation.' }
     $taskTarget = (Resolve-Path -LiteralPath $TargetExe).Path
     if ((Get-Item -LiteralPath $taskTarget).PSIsContainer -or [IO.Path]::GetFileName($taskTarget) -ine 'Client-Win64-Shipping.exe' -or $taskTarget.Length -ge 260) { throw 'Select the actual Client-Win64-Shipping.exe; paths >=260 characters remain unsupported.' }
 }
 $taskTargetHeader = Join-Path $BuildRoot 'target-exe.hpp'
-Write-TargetHeader -TargetExe $taskTarget -Output $taskTargetHeader
+if ($TargetTemplate) {
+    [IO.File]::WriteAllText($taskTargetHeader, "#pragma once`n#define WUWA_TARGET_TEMPLATE 1`n")
+} else {
+    Write-TargetHeader -TargetExe $taskTarget -Output $taskTargetHeader
+}
 $taskMirror = Stage-NativeSource -SourceRoot (Join-Path $taskRepo 'native') -NativeRoot $NativeRoot
 $taskManifest = foreach ($taskFile in Get-ChildItem -LiteralPath (Join-Path $taskRepo 'native') -Recurse -File) {
     [ordered]@{path=[IO.Path]::GetRelativePath((Join-Path $taskRepo 'native'),$taskFile.FullName);sha256=(Get-FileHash -LiteralPath $taskFile.FullName).Hash}
@@ -71,12 +77,20 @@ foreach ($taskPath in $taskIncludes) { $taskArgs += @('-I',$taskPath) }
 $taskArgs += @('-include',$taskTargetHeader,'-include',(Join-Path $taskMirror 'generic_compat.hpp'),'-c',(Join-Path $taskMirror 'addon.cpp'),'-o',$taskObject)
 & (Join-Path $ZigRoot 'zig.exe') @taskArgs 2>&1 | Tee-Object -FilePath (Join-Path $BuildRoot ('native-compile-' + $taskMacro + '.log'))
 if ($LASTEXITCODE -ne 0) { throw 'Native Microsoft-ABI compile failed' }
-$taskFile = if ($MacroOff) { 'renodx-dlss5-baseline.addon64' } else { 'renodx-dlss5-wuwa.addon64' }
+$taskFile = if ($MacroOff) { 'renodx-dlss5-baseline.addon64' } elseif ($TargetTemplate) { 'renodx-dlss5-wuwa-template.addon64' } else { 'renodx-dlss5-wuwa.addon64' }
 $taskBinary = Join-Path $BuildRoot $taskFile
 & link.exe /nologo /DLL /MACHINE:X64 /OPT:REF /OPT:ICF /DELAYLOAD:winhttp.dll ('/OUT:' + $taskBinary) $taskObject $taskDetoursLib kernel32.lib user32.lib advapi32.lib bcrypt.lib shell32.lib ole32.lib version.lib dbghelp.lib winhttp.lib delayimp.lib d3d12.lib dxgi.lib d3d11.lib psapi.lib uuid.lib libcmt.lib libcpmt.lib libvcruntime.lib libucrt.lib oldnames.lib 2>&1 | Tee-Object -FilePath (Join-Path $BuildRoot ('native-link-' + $taskMacro + '.log'))
 if ($LASTEXITCODE -ne 0) { throw 'Native link failed' }
 if (!$MacroOff) {
-    [ordered]@{targetExe=$taskTarget;nativeFile=$taskFile;nativeSha256=(Get-FileHash -LiteralPath $taskBinary).Hash;controlAbi=1;stateBytes=376;commandBytes=24;experimentEnabled=$true;sourceSha256=(Get-FileHash -LiteralPath $taskSourceManifest).Hash} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $BuildRoot 'native-build.json') -Encoding UTF8
+    $taskBuildRecord = [ordered]@{nativeFile=$taskFile;nativeSha256=(Get-FileHash -LiteralPath $taskBinary).Hash;controlAbi=1;stateBytes=376;commandBytes=24;experimentEnabled=$true;sourceSha256=(Get-FileHash -LiteralPath $taskSourceManifest).Hash}
+    if ($TargetTemplate) {
+        $taskBuildRecord.templateSha256 = $taskBuildRecord.nativeSha256
+        $taskBuildRecord.targetBinding = [ordered]@{version=1;export='RenoDX_WuWa_TargetExe';characters=260;marker='WUWA_UNBOUND_V1'}
+        $taskBuildRecord | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $BuildRoot 'native-build-template.json') -Encoding UTF8
+    } else {
+        $taskBuildRecord.targetExe = $taskTarget
+        $taskBuildRecord | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $BuildRoot 'native-build.json') -Encoding UTF8
+    }
 }
 Get-Item -LiteralPath $taskBinary | Select-Object Name,Length
 Get-FileHash -LiteralPath $taskBinary

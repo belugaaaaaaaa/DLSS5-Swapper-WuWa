@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Windows.h>
+#include <cstddef>
 #include <cwchar>
 
 // The public build generates this macro from an explicitly selected canonical
@@ -10,10 +11,38 @@
 #define WUWA_TARGET_EXE_W L""
 #endif
 
+#ifndef WUWA_TARGET_TEMPLATE
+#define WUWA_TARGET_TEMPLATE 0
+#endif
+
+#if WUWA_TARGET_TEMPLATE
+// The installer binds this exported data in an independently copied, hash-checked
+// template before loading it. Volatile reads prevent an unbound O2 build from
+// folding the process guard to false. Never edit a loaded module's target.
+extern "C" {
+__declspec(dllexport) inline volatile wchar_t RenoDX_WuWa_TargetExe[260] = L"WUWA_UNBOUND_V1";
+}
+static_assert(sizeof(wchar_t) == 2);
+static_assert(sizeof(RenoDX_WuWa_TargetExe) == 520);
+#endif
+
 namespace renodx::addons::dlss5 {
 inline bool IsWuWaCostProcess() {
   static const bool matches = [] {
+#if WUWA_TARGET_TEMPLATE
+    wchar_t target[260]{};
+    bool terminated = false;
+    for (size_t index = 0; index < 260; ++index) {
+      target[index] = RenoDX_WuWa_TargetExe[index];
+      if (target[index] == L'\0') {
+        terminated = true;
+        break;
+      }
+    }
+    if (!terminated) return false;
+#else
     constexpr const wchar_t* target = WUWA_TARGET_EXE_W;
+#endif
     const size_t target_length = std::wcslen(target);
     if (target_length == 0 || target_length >= MAX_PATH) return false;
     const bool drive_absolute = target_length >= 3
