@@ -33,7 +33,7 @@ function No-Links([string]$Value) {
 }
 function Need-File([string]$File) { No-Links $File; if (!(Test-Path -LiteralPath $File -PathType Leaf)) { throw ('Required file missing: ' + $File) }; return $File }
 function Git([string]$Root, [string[]]$Arguments) {
-    $lines = @(& git -c ('safe.directory=' + $Root.Replace('\','/')) -C $Root @Arguments)
+    $lines = @(& git.exe -c ('safe.directory=' + $Root.Replace('\','/')) -C $Root @Arguments)
     if ($LASTEXITCODE -ne 0) { throw ('git failed: ' + ($Arguments -join ' ')) }
     return $lines
 }
@@ -101,9 +101,11 @@ try {
 } finally { $zip.Dispose() }
 foreach ($required in @('Start-Setup.cmd','deploy/Setup.ps1','deploy/worker.js','deploy/lib/deploy-core.js','deploy/lib/bind-native.js','deploy/lib/resources.js','deploy/THIRD_PARTY.md','docs/DEPLOYMENT.zh-CN.md','swapper/src/core/backend-manager.js','swapper/package-lock.json','build/dependencies.json')) { $null = Need-File (Join-Path $stage $required) }
 # Detect accidental inclusion of this project's private workspace/game paths.
+$profilePattern = [regex]::Escape($env:USERPROFILE).Replace('\\','[\\/]+')
 foreach ($file in Get-ChildItem -LiteralPath $stage -Recurse -File -Force) {
     if ($file.Extension -match '^\.(md|js|json|ps1|cmd|cpp|h|hpp|hlsl|yml|yaml|txt)$') {
-        if ([IO.File]::ReadAllText($file.FullName) -match '(?i)\b[A-Z]:[\\/](?:Users|codex|wave|DLSS5-Swapper)[\\/]') { throw ('Private machine path found in ' + (Relative $stage $file.FullName)) }
+        $text = [IO.File]::ReadAllText($file.FullName)
+        if ($text -match '(?i)\b[A-Z]:[\\/](?:codex|wave|DLSS5-Swapper)[\\/]' -or ($env:USERPROFILE -and $text -match ('(?i)' + $profilePattern))) { throw ('Private machine path found in ' + (Relative $stage $file.FullName)) }
     }
 }
 $dependencies = Get-Content -LiteralPath (Join-Path $stage 'build/dependencies.json') -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -261,8 +263,17 @@ function Add-Package([string]$PackageDir) {
 $extract = Find-Package 'extract-zip' ([IO.Path]::GetDirectoryName($ProductionNodeModules))
 if (!$extract) { throw 'extract-zip is missing from ProductionNodeModules.' }
 $extractManifest = Get-Content -LiteralPath (Join-Path $extract 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-$sourceLock = Get-Content -LiteralPath (Join-Path $stage 'swapper/package-lock.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-if ($extractManifest.version -ne $sourceLock.packages.'node_modules/extract-zip'.version) { throw 'extract-zip does not match the source lockfile.' }
+$lockText = Get-Content -LiteralPath (Join-Path $stage 'swapper/package-lock.json') -Raw -Encoding UTF8
+# npm's packages object has an empty root key, which PSCustomObject JSON
+# conversion cannot represent. Use native dictionary conversion on both hosts.
+if ($PSVersionTable.PSVersion.Major -ge 6) { $sourceLock = ConvertFrom-Json -InputObject $lockText -AsHashtable }
+else {
+    Add-Type -AssemblyName System.Web.Extensions
+    $serializer = New-Object Web.Script.Serialization.JavaScriptSerializer
+    $serializer.MaxJsonLength = 16777216
+    $sourceLock = $serializer.DeserializeObject($lockText)
+}
+if ($extractManifest.version -ne $sourceLock['packages']['node_modules/extract-zip']['version']) { throw 'extract-zip does not match the source lockfile.' }
 Add-Package $extract
 Json-Write (Join-Path $licenses 'inventory.json') ([ordered]@{schema=1;sourceCommit=$resolvedCommit;licenses=@($licenseInventory);productionPackages=@($packageInventory)})
 # Keep a portable provenance inventory in the package, never absolute input paths.

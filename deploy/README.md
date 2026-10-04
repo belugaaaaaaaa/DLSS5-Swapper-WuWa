@@ -58,4 +58,4 @@ node --test deploy/test/*.test.js
 
 The deployment core accepts in-process hooks only in source tests. The production worker has an explicit JSON field allowlist and uses real process/reparse-point checks; it cannot accept dependency hooks from requests or environment variables. Full source backend coverage remains in [swapper/BUILD.md](../swapper/BUILD.md).
 
-Current preview validation and remaining ZIP/GUI checks are stated in [DEPLOYMENT.zh-CN.md](../docs/DEPLOYMENT.zh-CN.md). Do not turn a packaging or PE-fixture success into a claim that NR/cache ran in the game.
+The player preview is `v0.2.0-deployer-preview`. Actual independent ZIP, archived test, PowerShell 5 GUI and default production-worker five-step checks are stated in [DEPLOYMENT.zh-CN.md](../docs/DEPLOYMENT.zh-CN.md). Clear `NODE_PATH`/`NODE_OPTIONS` for package QA and verify production dependencies resolve inside the unpacked package. Do not turn a packaging or PE-fixture success into a claim that NR/cache ran in the game.

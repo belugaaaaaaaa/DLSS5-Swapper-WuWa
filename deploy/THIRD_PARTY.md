@@ -29,7 +29,7 @@
 
 - **Node.js 便携运行环境**：从 Node.js 官方站点取得，按其 `LICENSE` 及包含的第三方声明使用；保留在本地缓存中。无需提前安装 Node.js。
 - **官方 DLSS5-Swapper v2.2.7 portable**：从上游 GitHub Release 取得；也可选择你已下载且哈希匹配的原版 EXE。工具只把它当归档提取，**不会运行它**。原包和其中第三方组件保留各自许可。
-- **7zip-bin / 7-Zip 提取工具**：从固定 npm 包取得；提取后的完整 `LICENSE.txt` 保留在本地工具缓存。它的许可包含 7-Zip 所使用的 LGPL/BSD 与 unRAR 限制，不能套用本项目 MIT。
+- **7zip-bin / 7-Zip 提取工具**：从固定 npm 包取得，包内 `LICENSE.txt` 的 MIT 许可只涵盖 Vladimir Krivosheev 的封装，不把 `7za.exe` 重新授权为 MIT。7-Zip 21.07 的源码许可按部分代码区分 LGPL、BSD、公共领域和 unRAR 限制；完整版本说明见 [21.07 License.txt](https://github.com/ip7z/7zip/blob/21.07/DOC/License.txt) 与 [LGPL 2.1 全文](https://github.com/ip7z/7zip/blob/21.07/DOC/copying.txt)。公开部署 ZIP 不含这个 EXE，不能用本项目 MIT 或封装 MIT 推断该程序的再分发权限。
 
 从原版包取得的 ReShade loader、NVIDIA NR 运行库及模型只在本机用于准备鸣潮组件，不包含在我们公开的轻量 ZIP 中。这个流程没有为这些文件提供新的再分发授权。请遵守原发布者的完整条款，尤其不要把缓存中的第三方运行库、模型或原版 EXE重新当作本项目的 MIT 资产发布。
 

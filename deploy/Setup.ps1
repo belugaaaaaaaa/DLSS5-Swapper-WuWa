@@ -161,8 +161,10 @@ $terms.Add_LinkClicked({
     $licenseText.Font=New-Object Drawing.Font('Microsoft YaHei UI',10)
     $text=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'THIRD_PARTY.md') -Raw -Encoding UTF8
     $licenseDirectory=Join-Path $PSScriptRoot 'bundle\licenses'
-    if (Test-Path -LiteralPath $licenseDirectory) {
-        foreach($file in Get-ChildItem -LiteralPath $licenseDirectory -Recurse -File | Sort-Object FullName) {
+    $licenseFiles=@(Get-ChildItem -LiteralPath $PSScriptRoot -Filter 'LICENSE*.txt' -File)
+    if (Test-Path -LiteralPath $licenseDirectory) { $licenseFiles+=@(Get-ChildItem -LiteralPath $licenseDirectory -Recurse -File) }
+    if ($licenseFiles.Count) {
+        foreach($file in $licenseFiles | Sort-Object FullName) {
             $content=Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
             if ($file.Extension -eq '.docx') {
                 Add-Type -AssemblyName System.IO.Compression.FileSystem

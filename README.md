@@ -4,9 +4,9 @@
 
 我们从鸣潮开始，把 Swapper 的使用体验、NR（神经渲染）计算开销和玩家可接受的画质放在一起优化。开源的目的，是让玩家能分享有效设置、发现不同机器上的问题，也让开发者共同改进算法和使用流程。改进是否有价值，要看玩家能否以满意的画面更舒适地玩游戏。
 
-**Releases 正在准备无需编译的鸣潮轻量部署助手；源码仓库继续不含二进制。** 玩家流程是下载部署助手 ZIP、解压、打开 `Start-Setup.cmd`，选择自己的鸣潮根目录并安装。完整步骤与当前验证状态见 [部署指南](docs/DEPLOYMENT.zh-CN.md)。已安装的鸣潮本地版本获得用户验收，用户确认显卡“起飞”的体验问题改善；游戏日志也确认 NR 实际运行。这是已有成果，后续要靠更多机器和场景的反馈，找出哪些改动有效、哪些还需要调整。
+**Releases 提供无需编译的鸣潮轻量部署助手预览版 `v0.2.0-deployer-preview`；源码仓库继续不含二进制。** 玩家流程是下载部署助手 ZIP、解压、打开 `Start-Setup.cmd`，选择自己的鸣潮根目录并安装。完整步骤与验证范围见 [部署指南](docs/DEPLOYMENT.zh-CN.md)。已安装的鸣潮本地版本获得用户验收，用户确认显卡“起飞”的体验问题改善；游戏日志也确认 NR 实际运行。这是已有成果，后续要靠更多机器和场景的反馈，找出哪些改动有效、哪些还需要调整。
 
-Our goal is to help players reduce neural-rendering GPU overhead while keeping image quality they enjoy. We start with Wuthering Waves and welcome test reports, settings, visual comparisons and code contributions. A lightweight deployment-helper release is being prepared for players; the source repository contains no binaries. The installed local build has user acceptance, while broader hardware support and controlled A/B results are still being developed.
+Our goal is to help players reduce neural-rendering GPU overhead while keeping image quality they enjoy. We start with Wuthering Waves and welcome test reports, settings, visual comparisons and code contributions. Releases provide the lightweight deployment-helper preview `v0.2.0-deployer-preview`; the source repository contains no binaries. File-deployment checks pass, while broader hardware support and controlled in-game A/B results remain open community work. The installed local build has user acceptance.
 
 ## 玩家怎样参与
 

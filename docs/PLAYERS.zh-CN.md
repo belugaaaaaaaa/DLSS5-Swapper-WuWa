@@ -4,7 +4,7 @@
 
 ## 目前能拿到什么
 
-GitHub 源码仓库提供源码、构建方法和测试记录，不含二进制。Releases 正在准备 **轻量部署助手 ZIP**，为鸣潮提供无需编译的安装入口；是否已有可下载资产及最终验证结果，见 [部署说明](DEPLOYMENT.zh-CN.md)。已有本地安装版本获得真实鸣潮用户验收，用户确认显卡“起飞”的体验问题改善，见 [实测记录](USER_VALIDATION.zh-CN.md)。
+GitHub 源码仓库提供源码、构建方法和测试记录，不含二进制。[Releases](https://github.com/belugaaaaaaaa/DLSS5-Swapper-WuWa/releases) 提供 **轻量部署助手预览版 `v0.2.0-deployer-preview`**，为鸣潮提供无需编译的安装入口。下载 `DLSS5-Swapper-WuWa-v0.2.0-deployer-preview.zip`，使用步骤与验证范围见 [部署说明](DEPLOYMENT.zh-CN.md)。已有本地安装版本获得真实鸣潮用户验收，用户确认显卡“起飞”的体验问题改善，见 [实测记录](USER_VALIDATION.zh-CN.md)。
 
 普通玩家使用部署包即可，不需要先学会编译。工具会绑定你明确选择的鸣潮主程序路径，自动准备并校验所需组件；已有官方 v2.2.7 原版 EXE也可作为组件来源。如果你愿意自行构建，使用 [原生插件构建说明](../build/README.md) 与 [Swapper 构建说明](../swapper/BUILD.md)。
 

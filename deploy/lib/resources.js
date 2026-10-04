@@ -89,6 +89,9 @@ function extractSevenZipPackage(compressed, destination) {
   if (hash(found.get('package/win/x64/7za.exe')) !== pins.sevenZip.executableSha256) throw Error('归档工具校验失败。');
   fs.mkdirSync(destination, { recursive: true });
   for (const [name, bytes] of found) writeVerifiedCacheFile(path.join(destination, path.basename(name)), bytes);
+  for (const name of ['LICENSE-7ZIP.txt', 'LICENSE-LGPL-2.1.txt']) {
+    writeVerifiedCacheFile(path.join(destination, name), fs.readFileSync(path.join(__dirname, '..', name)));
+  }
   return path.join(destination, '7za.exe');
 }
 function writeVerifiedCacheFile(file, bytes) {
